@@ -3,12 +3,12 @@ KhanAcademy_code_analysis
 
 Khan Academy Interview Project
 
-*Step 1: Check out the intro CS videos to know what the questions look like*
+## Step 1: Check out the intro CS videos to know what the questions look like
 - The early drawing ones are very very simple (no structure) and the hints are pretty good
 - This sort of code is more useful in the later programming logic challengs
   - One use case for the core code would be to match different patterns and do things conditionally (e.x. "you are using an if without an else" a la Flashy Flash card)
   
-*Step 2: Look into the technology available*
+## Step 2: Look into the technology available
 - Esprima:
   - IE 8+
   - Triple the popularity on GitHub
@@ -30,10 +30,21 @@ Khan Academy Interview Project
   - No longer supported
   - No claims about support
   
-*Goals:*
+## Goals:
 - Positive pattern match or fail
 - Structured pattern match or fail
 - Negative match or fail
 - Return generic error messages
 - Include variable names in error messages
 - Scrape KhanAcademy and inject script into CS console
+
+
+-----------------------------
+## What Blocks?
+- If
+- Else
+- While
+- For
+- Variable declaration
+- Assignment
+- Increment/Decrement?
