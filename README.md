@@ -51,5 +51,8 @@ Khan Academy Interview Project
 
 
 #### Edge Cases to consider
-- Empty statement
-- Multiple variable declarations
+- Separate declaration and instantiation;
+- Warn if the grammar includes uncheckable content:
+    - Recursing into switch-case
+    - Expressions in if(), for(), while(), switch(), function param names
+- Function calls
