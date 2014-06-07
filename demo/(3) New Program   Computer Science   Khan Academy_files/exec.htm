@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)https://kasandbox.org/cs/exec?lang=en&v=0606-0942-33cf317d2a25.376366125980327060 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Execution Environment</title>
+    <link rel="stylesheet" type="text/css" href="scratchpads-exec-package-74a9306e2bec1cc944a867c74556e1af.css">
+    
+<script>
+(function() {
+var html5elements = ["header", "footer", "nav", "article", "section", "menu"];
+for (var i = 0; i < html5elements.length; i++) {
+    document.createElement(html5elements[i]);
+}
+})();
+</script>
+
+<style type="text/css">@font-face {
+  font-family: "PjsEmptyFont";
+  src: url('data:application/x-font-ttf;base64,AAEAAAAKAIAAAwAgT1MvMgAAAAAAAAEoAAAAVmNtYXAAAAAAAAABiAAAACxnbHlmAAAAAAAAAbwAAAAkaGVhZAAAAAAAAACsAAAAOGhoZWEAAAAAAAAA5AAAACRobXR4AAAAAAAAAYAAAAAGbG9jYQAAAAAAAAG0AAAABm1heHAAAAAAAAABCAAAACBuYW1lAAAAAAAAAeAAAAAgcG9zdAAAAAAAAAIAAAAAEAABAAAAAQAAAkgTY18PPPUACwAgAAAAALSRooAAAAAAyld0xgAAAAAAAQABAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEAAAACAAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACMAIwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAMAAQAAAAwABAAgAAAABAAEAAEAAABB//8AAABB////wAABAAAAAAAAAAgAEgAAAAEAAAAAAAAAAAAAAAAxAAABAAAAAAABAAEAAQAAMTcBAQAAAAAAAgAeAAMAAQQJAAEAAAAAAAMAAQQJAAIAAgAAAAAAAQAAAAAAAAAAAAAAAAAA')
+       format('truetype');
+}</style></head>
+<body>
+    <div id="test-errors" style="display: none;">
+    </div>
+
+    <!-- Output Canvas and Error Overlay -->
+    <div id="output">
+        <canvas id="output-canvas" width="400" height="400" tabindex="0" style="image-rendering: -webkit-optimize-contrast !important;"></canvas>
+        <div class="overlay error-overlay hidden" style="display: none;"></div>
+    </div>
+
+    <script type="text/html" id="tipbar-tmpl">
+    <div class="tipbar">
+        <div class="speech-arrow"></div>
+        <div class="error-buddy"></div>
+        <div class="tipnav">
+            <a href="" class="prev"><span class="ui-icon ui-icon-circle-triangle-w"></span></a>
+            <span class="current-pos"></span>
+            <a href="" class="next"><span class="ui-icon ui-icon-circle-triangle-e"></span></a>
+        </div>
+        <div class="text-wrap">
+            <div class="oh-no">Oh noes!</div>
+            <div class="message"></div>
+            <div class="show-me"><a href>Show me where</a></div>
+        </div>
+    </div>
+    </script>
+
+    <script>
+window.PackageManager = window.PackageManager || {
+    _q: [],
+    setLoaded: function() {
+        this._q.push.apply(this._q, arguments);
+    }
+};
+PackageManager.setLoaded("scratchpads-exec.css")</script>
+<script crossorigin="anonymous" src="scratchpads-exec-package-07cea82198f065c4d06ec64a9efc4d45.js"></script>
+<script>PackageManager.setLoaded("scratchpads-exec.js")</script>
+
+    <script>
+    (function() {
+        var isDevServer = true;
+        var hostname = window.location.hostname;
+
+        if (isDevServer || !(/\.khanacademy\.org$/i).test(hostname) ||
+                (/\.wild\.khanacademy\.org$/i).test(hostname)) {
+            // Hook in the execution enviroment
+            Output.init();
+        }
+    })();
+    </script><span style="position: absolute; top: 0px; left: 0px; opacity: 0; font-family: PjsEmptyFont, fantasy;">AAAAAAAA</span>
+
+</body></html>

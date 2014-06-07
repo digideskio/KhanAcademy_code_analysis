@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Execution Environment</title>
+    <link rel='stylesheet' type='text/css' href='https://www.kastatic.org/genfiles/stylesheets/en/scratchpads-exec-package-74a9306e2bec1cc944a867c74556e1af.css'>
+    
+<script>
+(function() {
+var html5elements = ["header", "footer", "nav", "article", "section", "menu"];
+for (var i = 0; i < html5elements.length; i++) {
+    document.createElement(html5elements[i]);
+}
+})();
+</script>
+
+</head>
+<body>
+    <div id="test-errors" style="display: none;">
+    </div>
+
+    <!-- Output Canvas and Error Overlay -->
+    <div id="output">
+        <canvas id="output-canvas" width="400" height="400"></canvas>
+        <div class="overlay error-overlay hidden"></div>
+    </div>
+
+    <script type="text/html" id="tipbar-tmpl">
+    <div class="tipbar">
+        <div class="speech-arrow"></div>
+        <div class="error-buddy"></div>
+        <div class="tipnav">
+            <a href="" class="prev"><span class="ui-icon ui-icon-circle-triangle-w"></span></a>
+            <span class="current-pos"></span>
+            <a href="" class="next"><span class="ui-icon ui-icon-circle-triangle-e"></span></a>
+        </div>
+        <div class="text-wrap">
+            <div class="oh-no">Oh noes!</div>
+            <div class="message"></div>
+            <div class="show-me"><a href>Show me where</a></div>
+        </div>
+    </div>
+    </script>
+
+    <script>
+window.PackageManager = window.PackageManager || {
+    _q: [],
+    setLoaded: function() {
+        this._q.push.apply(this._q, arguments);
+    }
+};
+PackageManager.setLoaded("scratchpads-exec.css")</script>
+<script crossorigin='anonymous' src='/cs/scratchpad-exec-1.js'></script>
+<script>PackageManager.setLoaded("scratchpads-exec.js")</script>
+
+    <script>
+    (function() {
+        var isDevServer = false;
+        var hostname = window.location.hostname;
+
+        if (isDevServer || !(/\.khanacademy\.org$/i).test(hostname) ||
+                (/\.wild\.khanacademy\.org$/i).test(hostname)) {
+            // Hook in the execution enviroment
+            Output.init();
+        }
+    })();
+    </script>
+</body>
+</html>

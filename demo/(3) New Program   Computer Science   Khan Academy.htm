@@ -1,0 +1,1978 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://www.khanacademy.org/cs/new -->
+<html lang="en" itemscope="" itemtype="http://schema.org/Organization" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" class=" scratchpad-has-features modernizr-no-touchevents modernizr-flexbox modernizr-no-flexboxtweener"><head prefix="og: http://ogp.me/ns# khanacademy:
+                        http://ogp.me/ns/apps/khanacademy#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        
+        <!--[if lte IE 7]><script src="/javascript/ie-warning.js"></script><script>window.onload=function(){e("/images/ie-warning/")}</script><![endif]-->
+        
+<script type="text/javascript" async="" src="https://ak.sail-horizon.com/horizon/v1.js"></script><script type="text/javascript">
+    // TODO: Sweep below into KA
+    // TODO: Change USERNAME var since it is actually the user's nickname
+    
+    window.FB_APP_ID = '160249463991765';
+    window.USERNAME = 'lemiant';
+
+    window.KA = {
+        version: "0606-0942-33cf317d2a25.376366125980327060",
+        isMobileCapable: false,
+        isIPad: false,
+        useKatex: true,
+        vipIssueReporter: false,
+        // TODO(eater): Remove after clues are fully launched
+        allowEditingClues: false,
+
+        "FB_APP_NAMESPACE": "khanacademy",
+        
+        userProfileModel_: null,
+        getUserProfile: function() {
+            
+            if (!KA.userProfileModel_) {
+                var ProfileModel = KAdefine.require(
+                    "./javascript/shared-package/profile-model.js");
+                KA.userProfileModel_ = new ProfileModel({"canRecordTutorial": false, "userKey": "ag5zfmtoYW4tYWNhZGVteXJPCxIIVXNlckRhdGEiQXVzZXJfaWRfa2V5X2h0dHA6Ly9nb29nbGVpZC5raGFuYWNhZGVteS5vcmcvMTE0NDIxNjg1NzAxNDIzNTY4MTUzDA", "countBrandNewNotifications": 3, "avatarName": "greenleaf", "moderatorLevel": 0, "publicBadges": [], "isParentOfLoggedInUser": false, "dateJoined": "2011-10-12T18:22:34Z", "userId": "http://googleid.khanacademy.org/114421685701423568153", "affiliations": [], "userLocation": {}, "canCreateOfficialClarifications": false, "backgroundName": "blue", "profileRoot": "/profile/_kag5zfmtoYW4tYWNhZGVteXJPCxIIVXNlckRhdGEiQXVzZXJfaWRfa2V5X2h0dHA6Ly9nb29nbGVpZC5raGFuYWNhZGVteS5vcmcvMTE0NDIxNjg1NzAxNDIzNTY4MTUzDA/", "isDataCollectible": true, "followRequiresApproval": true, "canMessageUsers": false, "isPhantom": false, "email": "lemiant@gmail.com", "includesUserDataInfo": false, "username": "", "bio": "", "canModifyCoaches": true, "globalPermissions": [], "canHellban": false, "isChildAccount": false, "background": {"thumbSrc": "https://www.kastatic.org/images/profile/backgrounds/bg-blue-preview.png", "translatedDisplayName": "Blue", "displayName": "Blue", "imageSrc": "https://www.kastatic.org/images/profile/backgrounds/bg-blue.png", "name": "blue"}, "isCreator": false, "countVideosCompleted": 54, "isPublic": false, "avatarSrc": "https://www.kastatic.org/images/avatars/leaf-green.png", "soundOn": false, "nickname": "lemiant", "isModerator": false, "backgroundSrc": "https://www.kastatic.org/images/profile/backgrounds/bg-blue.png", "isDeveloper": false, "isPublisher": false, "isCurator": false, "isActivityAccessible": true, "points": 100992, "isCoachingLoggedInUser": true, "avatar": {"translatedDisplayName": "Green Leaf", "displayName": "Green Leaf", "imageSrc": "https://www.kastatic.org/images/avatars/leaf-green.png", "name": "greenleaf"}, "isSelf": true, "badgeCounts": {"0": 53, "1": 17, "2": 0, "3": 0, "4": 0, "5": 0}, "hasStudents": false});
+            }
+            
+            return KA.userProfileModel_;
+        },
+
+        setUserProfile: function(attrs) {
+            if (!KA.userProfileModel_) {
+                var ProfileModel = KAdefine.require(
+                    "./javascript/shared-package/profile-model.js");
+                KA.userProfileModel_ = new ProfileModel(attrs);
+            }
+            KA.userProfileModel_.set(attrs);
+            return KA.userProfileModel_;
+        },
+        getGlobalPermissions: function() {
+            var profile = KA.getUserProfile();
+            return (profile && profile.get("globalPermissions")) || [];
+        },
+        getUserID: function() {
+            
+            return "http://googleid.khanacademy.org/114421685701423568153";
+            
+        },
+        isPhantom: function() {
+            var profile = KA.getUserProfile();
+            // The user is pre-phantom if there is no profile, so we
+            // include it in this check.
+            return !profile || profile.get("isPhantom");
+        },
+        isDeveloper: function() {
+            var profile = KA.getUserProfile();
+            return profile && profile.get("isDeveloper");
+        },
+        currentServerTime: function() {
+            return 1402078341.092;
+        },
+
+        // return a path to this static content given a relative url - example:
+        // staticUrl('/mathjax.js') -> 'https://www.kastatic.org/mathjax.js'
+        staticUrl: function(relative) {
+            return "https://www.kastatic.org" + relative;
+        },
+
+        mathjaxUrl: "https://www.kastatic.org/khan-exercises/third_party/MathJax/2.1/MathJax.js?config=KAthJax-8f02f65cba7722b3e529bd9dfa6ac25d",
+        commitSHA: "e8d9c04ab6feb1e173ee6d18b9d52b2401b8b256",
+        loginUrl: "/login?continue=%2Fcs%2Fnew",
+        
+        language: "en",
+        languageForYoutube: "en",
+        languageLocalName: "English",
+        languageIsRtl: false,
+        currentPageName: "New Program | Computer Science | Khan Academy",
+        MAX_BIO_LENGTH: 160,
+
+        // Whether we should show prerequisites for missions
+        SHOW_PREREQS_CONDITION: true,
+
+        SHOW_PREREQS_FOR_ADVANCED_MISSIONS: true,
+
+        // How to display hints in task completion history.
+        SHOW_TASK_HISTORY_HINT_MODE: "control",
+
+        // <GANDALF_COMMUNITY_SUPPORT>
+        GANDALF_COMMUNITY_SUPPORT: false,
+        // </GANDALF_COMMUNITY_SUPPORT>
+
+        GOLDILOCKS_CONDITION: "difficulty",
+
+        GANDALF_VIDEOTASK_PROGRESS: false,
+
+        ATHENA_VNEXT: false
+    };
+</script>
+
+
+        
+
+        <script type="text/javascript">
+        
+        window._qf = [];
+        var $ = function(f) { _qf.push(f); };
+
+        
+
+        window._gaq = window._gaq || [];_gaq.push(['_setAccount', 'UA-6742635-1']);
+          _gaq.push(['_setDomainName', '.khanacademy.org']);
+          
+          _gaq.push(['_setCustomVar', 1, "User Type", "Logged In", 1]);
+          
+          _gaq.push(['_setCustomVar', 2, "User Points", 100992, 1]);
+          
+          _gaq.push(['_setCustomVar', 3, "User Videos", 54, 1]);
+          
+          _gaq.push(['_setCustomVar', 4, "experiments", "b1:c0:", 3]);
+          
+          _gaq.push(['_setCustomVar', 5, "URI Route", "main:/cs/new", 3]);
+          
+          _gaq.push(['_trackPageview']);
+
+          window._initialPageTime = (new Date()).getTime(); // For page load time tracking</script>
+
+        
+
+        
+
+        <title>(3) New Program | Computer Science | Khan Academy</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="Learn for free about math, art, computer programming, economics, physics, chemistry, biology, medicine, finance, history, and more. Khan Academy is a nonprofit with the mission of providing a free, world-class education for anyone, anywhere.">
+        
+        <meta name="keywords" content="khan academy, learn, videos, lectures, practice, exercises, skills">
+        
+        
+
+        
+        
+
+
+        
+        
+
+        
+        
+
+        <meta property="fb:app_id" content="160249463991765">
+        <meta property="fb:admins" content="100000121497109,1305017,100001572496923"> 
+        <meta property="og:site_name" content="Khan Academy">
+        
+
+
+
+        <meta name="twitter:site" content="@khanacademy">
+
+
+
+        <meta itemprop="name" content="Khan Academy">
+        <meta itemprop="description" content="Watch. Practice. Learn almost anything for free.">
+        <meta itemprop="image" content="https://www.kastatic.org/images/khan-logo-vertical-transparent.png">
+        
+
+        
+        <link rel="shortcut icon" href="https://www.kastatic.org/favicon.ico?leaf">
+        
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://www.kastatic.org/images/apple-touch-icon-57x57-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.kastatic.org/images/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://www.kastatic.org/images/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.kastatic.org/images/apple-touch-icon-144x144-precomposed.png">
+
+        
+            
+            
+            
+<link rel="stylesheet" type="text/css" href="./(3) New Program   Computer Science   Khan Academy_files/shared-package-21068bdc1f0c36f3f9b6934e5255f912.css">
+<link rel="stylesheet" type="text/css" href="./(3) New Program   Computer Science   Khan Academy_files/moderation-package-1c252753e8892d9b554fa1f588b93a45.css">
+<link rel="stylesheet" type="text/css" href="./(3) New Program   Computer Science   Khan Academy_files/discussion-package-a8ca7703864520c3b3d3667603526799.css">
+<link rel="stylesheet" type="text/css" href="./(3) New Program   Computer Science   Khan Academy_files/tasks-package-bb8db317d41d235327060065a0650b1d.css">
+<link rel="stylesheet" type="text/css" href="./(3) New Program   Computer Science   Khan Academy_files/scratchpad-challenge-package-0cc625c55f3de2f6c8e4aa255eb0f978.css">
+<link rel="stylesheet" type="text/css" href="./(3) New Program   Computer Science   Khan Academy_files/scratchpads-package-5509adc26c1834eccffc9fba9b8e710f.css">
+<link rel="stylesheet" type="text/css" href="./(3) New Program   Computer Science   Khan Academy_files/intro-package-4e6bf5d5cf499e29fa250c074df58908.css">
+
+<link rel="stylesheet" type="text/css" href="./(3) New Program   Computer Science   Khan Academy_files/video-package-cad4ea412251376a910d783b7fd2c609.css">
+
+<link rel="stylesheet" type="text/css" href="./(3) New Program   Computer Science   Khan Academy_files/clarifications-package-9b27a5d5e6e209db42571ef088aea7b9.css">
+
+        
+    <style type="text/css">.v430006,.v373051,.v796502981,.p1931295721,.p2050946856,.e67078190,.v24192,.v24864,.e720817477,.v1049279550,.v8187521,.e13179357,.v8187466,.e520461717,.v8187465,.p5048127140659200,.v8187529,.p1931511584,.v27102,.v419007{background-position:center;}.v430006 .pipe.completed,.v373051 .pipe.completed,.v796502981 .pipe.completed,.p1931295721 .pipe.completed,.p2050946856 .pipe.completed,.e67078190 .pipe.completed,.v24192 .pipe.completed,.v24864 .pipe.completed,.e720817477 .pipe.completed,.v1049279550 .pipe.completed,.v8187521 .pipe.completed,.e13179357 .pipe.completed,.v8187466 .pipe.completed,.e520461717 .pipe.completed,.v8187465 .pipe.completed,.p5048127140659200 .pipe.completed,.v8187529 .pipe.completed,.p1931511584 .pipe.completed,.v27102 .pipe.completed,.v419007 .pipe.completed{display:block;}.v24116,.v27101,.p1912068525,.p2142687365,.v24112,.e702484106,.v417007,.v23954,.v25265,.v23886,.e1105859514,.p5123294386716672,.p1931501556,.e47770341,.e1106162193,.v382069,.v385052,.v8187528,.v25269,.p2040170141{background-position:center;}.v24116 .pipe.completed,.v27101 .pipe.completed,.p1912068525 .pipe.completed,.p2142687365 .pipe.completed,.v24112 .pipe.completed,.e702484106 .pipe.completed,.v417007 .pipe.completed,.v23954 .pipe.completed,.v25265 .pipe.completed,.v23886 .pipe.completed,.e1105859514 .pipe.completed,.p5123294386716672 .pipe.completed,.p1931501556 .pipe.completed,.e47770341 .pipe.completed,.e1106162193 .pipe.completed,.v382069 .pipe.completed,.v385052 .pipe.completed,.v8187528 .pipe.completed,.v25269 .pipe.completed,.p2040170141 .pipe.completed{display:block;}.v25241,.v25305,.e460994266,.e245530302,.a3vJ8-Fd78I9nW6O0p64JfDGdtieKP2hYXRcczyZu,.e47736350,.e280682094,.e458500039,.e13179407,.v27100,.ex7adb0385,.v426005,.v23714,.v8187530,.e805402547,.v25259,.e277597973,.v25467,.v370050,.v24186{background-position:center;}.v25241 .pipe.completed,.v25305 .pipe.completed,.e460994266 .pipe.completed,.e245530302 .pipe.completed,.a3vJ8-Fd78I9nW6O0p64JfDGdtieKP2hYXRcczyZu .pipe.completed,.e47736350 .pipe.completed,.e280682094 .pipe.completed,.e458500039 .pipe.completed,.e13179407 .pipe.completed,.v27100 .pipe.completed,.ex7adb0385 .pipe.completed,.v426005 .pipe.completed,.v23714 .pipe.completed,.v8187530 .pipe.completed,.e805402547 .pipe.completed,.v25259 .pipe.completed,.e277597973 .pipe.completed,.v25467 .pipe.completed,.v370050 .pipe.completed,.v24186 .pipe.completed{display:block;}.e201422224,.p2144527285,.v25735,.v24102,.e13179371,.v24100,.e3016,.v24106,.v24104,.e4800209,.v25315,.p2073015346,.e2022,.v27099,.e47892376,.e720935156,.v25239,.v948944478,.e917310246,.v24120{background-position:center;}.e201422224 .pipe.completed,.p2144527285 .pipe.completed,.v25735 .pipe.completed,.v24102 .pipe.completed,.e13179371 .pipe.completed,.v24100 .pipe.completed,.e3016 .pipe.completed,.v24106 .pipe.completed,.v24104 .pipe.completed,.e4800209 .pipe.completed,.v25315 .pipe.completed,.p2073015346 .pipe.completed,.e2022 .pipe.completed,.v27099 .pipe.completed,.e47892376 .pipe.completed,.e720935156 .pipe.completed,.v25239 .pipe.completed,.v948944478 .pipe.completed,.e917310246 .pipe.completed,.v24120 .pipe.completed{display:block;}.e205349198,.v25235,.v27098,.v25237,.p1931406602{background-position:center;}.e205349198 .pipe.completed,.v25235 .pipe.completed,.v27098 .pipe.completed,.v25237 .pipe.completed,.p1931406602 .pipe.completed{display:block;}.e13179357,.e196041692,.e426672506,.e196075508,.e701941563,.exa299dc79,.e720817477,.e537138489,.e292989605,.e66768579,.e379057519,.v25267,.e292987819,.e333650286,.e265340597,.e3849070,.e898677597,.exf9bcac7c,.v23888,.e237920064{background-position:bottom;}.e13179357 .pipe.completed,.e196041692 .pipe.completed,.e426672506 .pipe.completed,.e196075508 .pipe.completed,.e701941563 .pipe.completed,.exa299dc79 .pipe.completed,.e720817477 .pipe.completed,.e537138489 .pipe.completed,.e292989605 .pipe.completed,.e66768579 .pipe.completed,.e379057519 .pipe.completed,.v25267 .pipe.completed,.e292987819 .pipe.completed,.e333650286 .pipe.completed,.e265340597 .pipe.completed,.e3849070 .pipe.completed,.e898677597 .pipe.completed,.exf9bcac7c .pipe.completed,.v23888 .pipe.completed,.e237920064 .pipe.completed{display:block;}.e47750479,.e280682094,.e554082156,.e2003,.e280662526,.e1080890293,.e205304798,.e363766194,.e541518385,.e265365034,.e1283220979,.e363750329,.e231832521,.e460972000,.e592471461,.e274889844,.e592442008,.e1226239193,.v25273,.v25271{background-position:bottom;}.e47750479 .pipe.completed,.e280682094 .pipe.completed,.e554082156 .pipe.completed,.e2003 .pipe.completed,.e280662526 .pipe.completed,.e1080890293 .pipe.completed,.e205304798 .pipe.completed,.e363766194 .pipe.completed,.e541518385 .pipe.completed,.e265365034 .pipe.completed,.e1283220979 .pipe.completed,.e363750329 .pipe.completed,.e231832521 .pipe.completed,.e460972000 .pipe.completed,.e592471461 .pipe.completed,.e274889844 .pipe.completed,.e592442008 .pipe.completed,.e1226239193 .pipe.completed,.v25273 .pipe.completed,.v25271 .pipe.completed{display:block;}.e720871331,.e213288729,.e369017708,.e3025,.e213214088,.e5265923,.e3035,.v8187527,.v8187526,.v8187525,.v8187524,.v8187523,.v8187522,.v8187520,.e720553954,.e47765362,.e643163590,.e702001212,.e458428444,.e213271375{background-position:bottom;}.e720871331 .pipe.completed,.e213288729 .pipe.completed,.e369017708 .pipe.completed,.e3025 .pipe.completed,.e213214088 .pipe.completed,.e5265923 .pipe.completed,.e3035 .pipe.completed,.v8187527 .pipe.completed,.v8187526 .pipe.completed,.v8187525 .pipe.completed,.v8187524 .pipe.completed,.v8187523 .pipe.completed,.v8187522 .pipe.completed,.v8187520 .pipe.completed,.e720553954 .pipe.completed,.e47765362 .pipe.completed,.e643163590 .pipe.completed,.e702001212 .pipe.completed,.e458428444 .pipe.completed,.e213271375 .pipe.completed{display:block;}.v24876,.v24874,.v24872,.e213328056,.v24870,.v384057,.e245530302,.e297920627,.e47736350,.e426633747,.e716798913,.e196139891,.e1105859514,.e47887257,.e720935156,.e541466377,.e2023,.e541433013,.e3013,.e3010{background-position:bottom;}.v24876 .pipe.completed,.v24874 .pipe.completed,.v24872 .pipe.completed,.e213328056 .pipe.completed,.v24870 .pipe.completed,.v384057 .pipe.completed,.e245530302 .pipe.completed,.e297920627 .pipe.completed,.e47736350 .pipe.completed,.e426633747 .pipe.completed,.e716798913 .pipe.completed,.e196139891 .pipe.completed,.e1105859514 .pipe.completed,.e47887257 .pipe.completed,.e720935156 .pipe.completed,.e541466377 .pipe.completed,.e2023 .pipe.completed,.e541433013 .pipe.completed,.e3013 .pipe.completed,.e3010 .pipe.completed{display:block;}.e3011,.e3016,.e3017,.e3014,.e3015,.e568741839,.e3018,.e231802990,.e213229225,.e2019,.e2018,.v25255,.v25257,.e2011,.e2010,.e2012,.e2015,.e2014,.e2017,.e2016{background-position:bottom;}.e3011 .pipe.completed,.e3016 .pipe.completed,.e3017 .pipe.completed,.e3014 .pipe.completed,.e3015 .pipe.completed,.e568741839 .pipe.completed,.e3018 .pipe.completed,.e231802990 .pipe.completed,.e213229225 .pipe.completed,.e2019 .pipe.completed,.e2018 .pipe.completed,.v25255 .pipe.completed,.v25257 .pipe.completed,.e2011 .pipe.completed,.e2010 .pipe.completed,.e2012 .pipe.completed,.e2015 .pipe.completed,.e2014 .pipe.completed,.e2017 .pipe.completed,.e2016 .pipe.completed{display:block;}.e498106090,.e986736446,.e498092433,.e237888351,.e371630407,.e4637496,.e324859999,.e720778814,.e498099631,.e357437094,.e701901621,.e720725814,.e324869626,.e1126131850,.e575147721,.e449514451,.e251598327,.v390059,.e12293397,.v24138{background-position:bottom;}.e498106090 .pipe.completed,.e986736446 .pipe.completed,.e498092433 .pipe.completed,.e237888351 .pipe.completed,.e371630407 .pipe.completed,.e4637496 .pipe.completed,.e324859999 .pipe.completed,.e720778814 .pipe.completed,.e498099631 .pipe.completed,.e357437094 .pipe.completed,.e701901621 .pipe.completed,.e720725814 .pipe.completed,.e324869626 .pipe.completed,.e1126131850 .pipe.completed,.e575147721 .pipe.completed,.e449514451 .pipe.completed,.e251598327 .pipe.completed,.v390059 .pipe.completed,.e12293397 .pipe.completed,.v24138 .pipe.completed{display:block;}.e1280176961,.e427782083,.v388057,.e805402547,.e1080859355,.v362063,.e1106131470,.e347957645,.e2033,.e2032,.e2031,.e277631368,.e3030,.e3032,.e3033,.e3034,.v6022720,.e47892376,.e537154517,.e342773513{background-position:bottom;}.e1280176961 .pipe.completed,.e427782083 .pipe.completed,.v388057 .pipe.completed,.e805402547 .pipe.completed,.e1080859355 .pipe.completed,.v362063 .pipe.completed,.e1106131470 .pipe.completed,.e347957645 .pipe.completed,.e2033 .pipe.completed,.e2032 .pipe.completed,.e2031 .pipe.completed,.e277631368 .pipe.completed,.e3030 .pipe.completed,.e3032 .pipe.completed,.e3033 .pipe.completed,.e3034 .pipe.completed,.v6022720 .pipe.completed,.e47892376 .pipe.completed,.e537154517 .pipe.completed,.e342773513 .pipe.completed{display:block;}.e4651379,.e251603956,.e357414238,.v429004,.e3019,.e196013736,.e201415654,.e3022,.p2093483305,.e898971113,.e805202785,.e460994266,.e716812878,.e47784257,.e205299729,.e251567894,.v28121,.v28120,.v25347,.v24680{background-position:bottom;}.e4651379 .pipe.completed,.e251603956 .pipe.completed,.e357414238 .pipe.completed,.v429004 .pipe.completed,.e3019 .pipe.completed,.e196013736 .pipe.completed,.e201415654 .pipe.completed,.e3022 .pipe.completed,.p2093483305 .pipe.completed,.e898971113 .pipe.completed,.e805202785 .pipe.completed,.e460994266 .pipe.completed,.e716812878 .pipe.completed,.e47784257 .pipe.completed,.e205299729 .pipe.completed,.e251567894 .pipe.completed,.v28121 .pipe.completed,.v28120 .pipe.completed,.v25347 .pipe.completed,.v24680 .pipe.completed{display:block;}.v24682,.e325329347,.e1106162193,.e196083980,.e366693151,.e617819647,.e213165631,.e213307256,.e2022,.v24188,.e418343167,.e4166558,.e371628196,.e4745921,.e310282900,.v25745,.e701911238,.e245552066,.e844384906,.e272338869{background-position:bottom;}.v24682 .pipe.completed,.e325329347 .pipe.completed,.e1106162193 .pipe.completed,.e196083980 .pipe.completed,.e366693151 .pipe.completed,.e617819647 .pipe.completed,.e213165631 .pipe.completed,.e213307256 .pipe.completed,.e2022 .pipe.completed,.v24188 .pipe.completed,.e418343167 .pipe.completed,.e4166558 .pipe.completed,.e371628196 .pipe.completed,.e4745921 .pipe.completed,.e310282900 .pipe.completed,.v25745 .pipe.completed,.e701911238 .pipe.completed,.e245552066 .pipe.completed,.e844384906 .pipe.completed,.e272338869 .pipe.completed{display:block;}.v24868,.e338014133,.e720948123,.e840068734,.e523319125,.v24866,.e461002061,.e310099745,.e957104859,.e617781850,.e840079350,.e66754977,.e195728164,.e757444186,.e5252991,.e498117097,.e986692734,.p1968258156,.e701990088,.e23890541{background-position:bottom;}.v24868 .pipe.completed,.e338014133 .pipe.completed,.e720948123 .pipe.completed,.e840068734 .pipe.completed,.e523319125 .pipe.completed,.v24866 .pipe.completed,.e461002061 .pipe.completed,.e310099745 .pipe.completed,.e957104859 .pipe.completed,.e617781850 .pipe.completed,.e840079350 .pipe.completed,.e66754977 .pipe.completed,.e195728164 .pipe.completed,.e757444186 .pipe.completed,.e5252991 .pipe.completed,.e498117097 .pipe.completed,.e986692734 .pipe.completed,.p1968258156 .pipe.completed,.e701990088 .pipe.completed,.e23890541 .pipe.completed{display:block;}.e23890543,.e23890542,.v351061,.e4997089,.e720787733,.e251658143,.e274063565,.exc4532d76,.e449948800,.v8187531,.e460969021,.e13179429,.e970556012,.e213250823,.e369016246,.e594289413,.e541520116,.e461013412,.e67078190,.e274942887{background-position:bottom;}.e23890543 .pipe.completed,.e23890542 .pipe.completed,.v351061 .pipe.completed,.e4997089 .pipe.completed,.e720787733 .pipe.completed,.e251658143 .pipe.completed,.e274063565 .pipe.completed,.exc4532d76 .pipe.completed,.e449948800 .pipe.completed,.v8187531 .pipe.completed,.e460969021 .pipe.completed,.e13179429 .pipe.completed,.e970556012 .pipe.completed,.e213250823 .pipe.completed,.e369016246 .pipe.completed,.e594289413 .pipe.completed,.e541520116 .pipe.completed,.e461013412 .pipe.completed,.e67078190 .pipe.completed,.e274942887 .pipe.completed{display:block;}.e458405550,.e66792177,.e47799044,.e205349198,.v326399715,.e729494328,.e357396312,.e426688097,.e3001,.e729514670,.v25461,.e3002,.e3005,.e3004,.e3007,.e205280964,.e3009,.e3008,.e899081489,.ax4a899dc9{background-position:bottom;}.e458405550 .pipe.completed,.e66792177 .pipe.completed,.e47799044 .pipe.completed,.e205349198 .pipe.completed,.v326399715 .pipe.completed,.e729494328 .pipe.completed,.e357396312 .pipe.completed,.e426688097 .pipe.completed,.e3001 .pipe.completed,.e729514670 .pipe.completed,.v25461 .pipe.completed,.e3002 .pipe.completed,.e3005 .pipe.completed,.e3004 .pipe.completed,.e3007 .pipe.completed,.e205280964 .pipe.completed,.e3009 .pipe.completed,.e3008 .pipe.completed,.e899081489 .pipe.completed,.ax4a899dc9 .pipe.completed{display:block;}.v25261,.v25263,.e47770341,.e460969351,.e243479663,.e617857186,.e458500039,.e642900605,.e13179402,.v397056,.e47789184,.e720749512,.e4557553,.e497964681,.e251580500,.e4800209,.e702484106,.e251616813,.e523026328,.v4802239{background-position:bottom;}.v25261 .pipe.completed,.v25263 .pipe.completed,.e47770341 .pipe.completed,.e460969351 .pipe.completed,.e243479663 .pipe.completed,.e617857186 .pipe.completed,.e458500039 .pipe.completed,.e642900605 .pipe.completed,.e13179402 .pipe.completed,.v397056 .pipe.completed,.e47789184 .pipe.completed,.e720749512 .pipe.completed,.e4557553 .pipe.completed,.e497964681 .pipe.completed,.e251580500 .pipe.completed,.e4800209 .pipe.completed,.e702484106 .pipe.completed,.e251616813 .pipe.completed,.e523026328 .pipe.completed,.v4802239 .pipe.completed{display:block;}.e415276545,.e196064396,.e20874,.e458480641,.e46563848,.e47757395,.ex964ad333,.e251591675,.e415898215,.e725546801,.e1080749794,.e688726305,.e231856074,.e3029,.e3028,.e3027,.e3026,.e13090861,.e3024,.e3023{background-position:bottom;}.e415276545 .pipe.completed,.e196064396 .pipe.completed,.e20874 .pipe.completed,.e458480641 .pipe.completed,.e46563848 .pipe.completed,.e47757395 .pipe.completed,.ex964ad333 .pipe.completed,.e251591675 .pipe.completed,.e415898215 .pipe.completed,.e725546801 .pipe.completed,.e1080749794 .pipe.completed,.e688726305 .pipe.completed,.e231856074 .pipe.completed,.e3029 .pipe.completed,.e3028 .pipe.completed,.e3027 .pipe.completed,.e3026 .pipe.completed,.e13090861 .pipe.completed,.e3024 .pipe.completed,.e3023 .pipe.completed{display:block;}.e75894985,.e3021,.e3020,.e2008,.e2009,.e523015520,.v25247,.e415951528,.v25245,.e2006,.e2007,.e2004,.e2005,.v544749483,.e520461717,.e458495355,.e413665443,.e2002,.e720782619,.e261804192{background-position:bottom;}.e75894985 .pipe.completed,.e3021 .pipe.completed,.e3020 .pipe.completed,.e2008 .pipe.completed,.e2009 .pipe.completed,.e523015520 .pipe.completed,.v25247 .pipe.completed,.e415951528 .pipe.completed,.v25245 .pipe.completed,.e2006 .pipe.completed,.e2007 .pipe.completed,.e2004 .pipe.completed,.e2005 .pipe.completed,.v544749483 .pipe.completed,.e520461717 .pipe.completed,.e458495355 .pipe.completed,.e413665443 .pipe.completed,.e2002 .pipe.completed,.e720782619 .pipe.completed,.e261804192 .pipe.completed{display:block;}.e523235921,.e277597973,.e196011899,.e201422224,.e461015185,.e805471153,.e347994616,.e920312137,.e371794641,.e643305766,.e201382013,.e13179371,.e13179375,.e213284163,.e426656847,.e261977487,.e363799134,.v24190,.e574955549,.e2021{background-position:bottom;}.e523235921 .pipe.completed,.e277597973 .pipe.completed,.e196011899 .pipe.completed,.e201422224 .pipe.completed,.e461015185 .pipe.completed,.e805471153 .pipe.completed,.e347994616 .pipe.completed,.e920312137 .pipe.completed,.e371794641 .pipe.completed,.e643305766 .pipe.completed,.e201382013 .pipe.completed,.e13179371 .pipe.completed,.e13179375 .pipe.completed,.e213284163 .pipe.completed,.e426656847 .pipe.completed,.e261977487 .pipe.completed,.e363799134 .pipe.completed,.v24190 .pipe.completed,.e574955549 .pipe.completed,.e2021 .pipe.completed{display:block;}.e1197684422,.e293008404,.e2024,.e324885543,.e701927254,.e379074129,.e214174044,.v27097,.e688778053,.v25225,.e460926478,.e196046899,.v4802240,.v4802241,.e463316077,.e3003,.e4514693,.e47840766,.e899094160,.e257483380{background-position:bottom;}.e1197684422 .pipe.completed,.e293008404 .pipe.completed,.e2024 .pipe.completed,.e324885543 .pipe.completed,.e701927254 .pipe.completed,.e379074129 .pipe.completed,.e214174044 .pipe.completed,.v27097 .pipe.completed,.e688778053 .pipe.completed,.v25225 .pipe.completed,.e460926478 .pipe.completed,.e196046899 .pipe.completed,.v4802240 .pipe.completed,.v4802241 .pipe.completed,.e463316077 .pipe.completed,.e3003 .pipe.completed,.e4514693 .pipe.completed,.e47840766 .pipe.completed,.e899094160 .pipe.completed,.e257483380 .pipe.completed{display:block;}.e196034489,.e463313527,.e559639459,.e3006,.v25355,.e23890539,.v25459,.v25351,.v25353,.e917310246,.v25359,.e23890537{background-position:bottom;}.e196034489 .pipe.completed,.e463313527 .pipe.completed,.e559639459 .pipe.completed,.e3006 .pipe.completed,.v25355 .pipe.completed,.e23890539 .pipe.completed,.v25459 .pipe.completed,.v25351 .pipe.completed,.v25353 .pipe.completed,.e917310246 .pipe.completed,.v25359 .pipe.completed,.e23890537 .pipe.completed{display:block;}</style><style id="ace_editor">.ace_editor {position: relative;overflow: hidden;font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;font-size: 12px;line-height: normal;color: black;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;}.ace_content {position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: text;}.ace_dragging, .ace_dragging * {cursor: move !important;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUM2OEZDQTQ4RTU0MTFFMUEzM0VFRTM2RUY1M0RBMjYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUM2OEZDQTU4RTU0MTFFMUEzM0VFRTM2RUY1M0RBMjYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQzY4RkNBMjhFNTQxMUUxQTMzRUVFMzZFRjUzREEyNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBQzY4RkNBMzhFNTQxMUUxQTMzRUVFMzZFRjUzREEyNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PkgXxbAAAAJbSURBVHjapFNNaBNBFH4zs5vdZLP5sQmNpT82QY209heh1ioWisaDRcSKF0WKJ0GQnrzrxasHsR6EnlrwD0TagxJabaVEpFYxLWlLSS822tr87m66ccfd2GKyVhA6MMybgfe97/vmPUQphd0sZjto9XIn9OOsvlu2nkqRzVU+6vvlzPf8W6bk8dxQ0NPbxAALgCgg2JkaQuhzQau/El0zbmUA7U0Es8v2CiYmKQJHGO1QICCLoqilMhkmurDAyapKgqItezi/USRdJqEYY4D5jCy03ht2yMkkvL91jTTX10qzyyu2hruPRN7jgbH+EOsXcMLgYiThEgAMhABW85oqy1DXdRIdvP1AHJ2acQXvDIrVHcdQNrEKNYSVMSZGMjEzIIAwDXIo+6G/FxcGnzkC3T2oMhLjre49sBB+RRcHLqdafK6sYdE/GGBwU1VpFNj0aN8pJbe+BkZyevUrvLl6Xmm0W9IuTc0DxrDNAJd5oEvI/KRsNC3bQyNjPO9yQ1YHcfj2QvfQc/5TUhJTBc2iM0U7AWDQtc1nJHvD/cfO2s7jaGkiTEfa/Ep8coLu7zmNmh8+dc5lZDuUeFAGUNA/OY6JVaypQ0vjr7XYjUvJM37vt+j1vuTK5DgVfVUoTjVe+y3/LxMxY2GgU+CSLy4cpfsYorRXuXIOi0Vt40h67uZFTdIo6nLaZcwUJWAzwNS0tBnqqKzQDnjdG/iPyZxo46HaKUpbvYkj8qYRTZsBhge+JHhZyh0x9b95JqjVJkT084kZIPwu/mPWqPgfQ5jXh2+92Ay7HedfAgwA6KDWafb4w3cAAAAASUVORK5CYII=");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUM2OEZDQTg4RTU0MTFFMUEzM0VFRTM2RUY1M0RBMjYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUM2OEZDQTk4RTU0MTFFMUEzM0VFRTM2RUY1M0RBMjYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQzY4RkNBNjhFNTQxMUUxQTMzRUVFMzZFRjUzREEyNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBQzY4RkNBNzhFNTQxMUUxQTMzRUVFMzZFRjUzREEyNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pgd7PfIAAAGmSURBVHjaYvr//z8DJZiJgUIANoCRkREb9gLiSVAaQx4OQM7AAkwd7XU2/v++/rOttdYGEB9dASEvOMydGKfH8Gv/p4XTkvRBfLxeQAP+1cUhXopyvzhP7P/IoSj7g7Mw09cNKO6J1QQ0L4gICPIv/veg/8W+JdFvQNLHVsW9/nmn9zk7B+cCkDwhL7gt6knSZnx9/LuCEOcvkIAMP+cvto9nfqyZmmUAksfnBUtbM60gX/3/kgyv3/xSFOL5DZT+L8vP+Yfh5cvfPvp/xUHyQHXGyAYwgpwBjZYFT3Y1OEl/OfCH4ffv3wzc4iwMvNIsDJ+f/mH4+vIPAxsb631WW0Yln6ZpQLXdMK/DXGDflh+sIv37EivD5x//Gb7+YWT4y86sl7BCCkSD+Z++/1dkvsFRl+HnD1Rvje4F8whjMXmGj58YGf5zsDMwcnAwfPvKcml62DsQDeaDxN+/Y0qwlpEHqrdB94IRNIDUgfgfKJChGK4OikEW3gTiXUB950ASLFAF54AC94A0G9QAfOnmF9DCDzABFqS08IHYDIScdijOjQABBgC+/9awBH96jwAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/gif;base64,R0lGODlhEAAQAMQAAAAAAEFBQVJSUl5eXmRkZGtra39/f4WFhYmJiZGRkaampry8vMPDw8zMzNXV1dzc3OTk5Orq6vDw8P///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABQALAAAAAAQABAAAAUuICWOZGmeaBml5XGwFCQSBGyXRSAwtqQIiRuiwIM5BoYVbEFIyGCQoeJGrVptIQA7");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGRTk5MTVGREIxNDkxMUUxOTc5Q0FFREQyMTNGMjBFQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGRTk5MTVGRUIxNDkxMUUxOTc5Q0FFREQyMTNGMjBFQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZFOTkxNUZCQjE0OTExRTE5NzlDQUVERDIxM0YyMEVDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkZFOTkxNUZDQjE0OTExRTE5NzlDQUVERDIxM0YyMEVDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SIDkjAAAAJ1JREFUeNpi/P//PwMlgImBQkB7A6qrq/+DMC55FkIGKCoq4pVnpFkgTp069f/+/fv/r1u37r+tre1/kg0A+ptn9uzZYLaRkRHpLvjw4cNXWVlZhufPnzOcO3eOdAO0tbVPAjHDmzdvGA4fPsxIsgGSkpJmv379Ynj37h2DjIyMCMkG3LhxQ/T27dsMampqDHZ2dq/pH41DxwCAAAMAFdc68dUsFZgAAAAASUVORK5CYII=");}.ace_scrollbar {position: absolute;overflow-x: hidden;overflow-y: auto;right: 0;top: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-h {position: absolute;overflow-x: auto;overflow-y: hidden;right: 0;left: 0;bottom: 0;z-index: 6;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;text-indent: -1em;}.ace_text-input.ace_composition {background: #f8f8f8;color: #111;z-index: 1000;opacity: 1;text-indent: 0;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;white-space: nowrap;height: 100%;width: 100%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;/* setting pointer-events: auto; on node under the mouse, which changesduring scroll, will break mouse wheel scrolling in Safari */pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;}.ace_text-layer {font: inherit !important;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;border-left: 2px solid}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0px;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {-moz-transition: opacity 0.18s;-webkit-transition: opacity 0.18s;-o-transition: opacity 0.18s;-ms-transition: opacity 0.18s;transition: opacity 0.18s;}.ace_cursor[style*="opacity: 0"]{-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";}.ace_editor.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_line {white-space: nowrap;}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_line .ace_fold {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%11%00%00%00%09%08%06%00%00%00%D4%E8%C7%0C%00%00%03%1EiCCPICC%20Profile%00%00x%01%85T%DFk%D3P%14%FE%DAe%9D%B0%E1%8B%3Ag%11%09%3Eh%91ndStC%9C%B6kW%BA%CDZ%EA6%B7!H%9B%A6m%5C%9A%C6%24%ED~%B0%07%D9%8Bo%3A%C5w%F1%07%3E%F9%07%0C%D9%83o%7B%92%0D%C6%14a%F8%AC%88%22L%F6%22%B3%9E%9B4M'S%03%B9%F7%BB%DF%F9%EE9'%E7%E4%5E%A0%F9qZ%D3%14%2F%0F%14USO%C5%C2%FC%C4%E4%14%DF%F2%01%5E%1CC%2B%FChM%8B%86%16J%26G%40%0F%D3%B2y%EF%B3%F3%0E%1E%C6lt%EEo%DF%AB%FEc%D5%9A%95%0C%11%F0%1C%20%BE%945%C4%22%E1Y%A0i%5C%D4t%13%E0%D6%89%EF%9D15%C2%CDLsX%A7%04%09%1Fg8oc%81%E1%8C%8D%23%96f45%40%9A%09%C2%07%C5B%3AK%B8%408%98i%E0%F3%0D%D8%CE%81%14%E4'%26%A9%92.%8B%3C%ABER%2F%E5dE%B2%0C%F6%F0%1Fs%83%F2_%B0%A8%94%E9%9B%AD%E7%10%8Dm%9A%19N%D1%7C%8A%DE%1F9%7Dp%8C%E6%00%D5%C1%3F_%18%BDA%B8%9DpX6%E3%A35~B%CD%24%AE%11%26%BD%E7%EEti%98%EDe%9A%97Y)%12%25%1C%24%BCbT%AE3li%E6%0B%03%89%9A%E6%D3%ED%F4P%92%B0%9F4%BF43Y%F3%E3%EDP%95%04%EB1%C5%F5%F6KF%F4%BA%BD%D7%DB%91%93%07%E35%3E%A7)%D6%7F%40%FE%BD%F7%F5r%8A%E5y%92%F0%EB%B4%1E%8D%D5%F4%5B%92%3AV%DB%DB%E4%CD%A6%23%C3%C4wQ%3F%03HB%82%8E%1Cd(%E0%91B%0Ca%9Ac%C4%AA%F8L%16%19%22J%A4%D2itTy%B28%D6%3B(%93%96%ED%1CGx%C9_%0E%B8%5E%16%F5%5B%B2%B8%F6%E0%FB%9E%DD%25%D7%8E%BC%15%85%C5%B7%A3%D8Q%ED%B5%81%E9%BA%B2%13%9A%1B%7Fua%A5%A3n%E17%B9%E5%9B%1Bm%AB%0B%08Q%FE%8A%E5%B1H%5Ee%CAO%82Q%D7u6%E6%90S%97%FCu%0B%CF2%94%EE%25v%12X%0C%BA%AC%F0%5E%F8*l%0AO%85%17%C2%97%BF%D4%C8%CE%DE%AD%11%CB%80q%2C%3E%AB%9ES%CD%C6%EC%25%D2L%D2%EBd%B8%BF%8A%F5B%C6%18%F9%901CZ%9D%BE%24M%9C%8A9%F2%DAP%0B'%06w%82%EB%E6%E2%5C%2F%D7%07%9E%BB%CC%5D%E1%FA%B9%08%AD.r%23%8E%C2%17%F5E%7C!%F0%BE3%BE%3E_%B7o%88a%A7%DB%BE%D3d%EB%A31Z%EB%BB%D3%91%BA%A2%B1z%94%8F%DB'%F6%3D%8E%AA%13%19%B2%B1%BE%B1~V%08%2B%B4%A2cjJ%B3tO%00%03%25mN%97%F3%05%93%EF%11%84%0B%7C%88%AE-%89%8F%ABbW%90O%2B%0Ao%99%0C%5E%97%0CI%AFH%D9.%B0%3B%8F%ED%03%B6S%D6%5D%E6i_s9%F3*p%E9%1B%FD%C3%EB.7U%06%5E%19%C0%D1s.%17%A03u%E4%09%B0%7C%5E%2C%EB%15%DB%1F%3C%9E%B7%80%91%3B%DBc%AD%3Dma%BA%8B%3EV%AB%DBt.%5B%1E%01%BB%0F%AB%D5%9F%CF%AA%D5%DD%E7%E4%7F%0Bx%A3%FC%06%A9%23%0A%D6%C2%A1_2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%00%B5IDAT(%15%A5%91%3D%0E%02!%10%85ac%E1%05%D6%CE%D6%C6%CE%D2%E8%ED%CD%DE%C0%C6%D6N.%E0V%F8%3D%9Ca%891XH%C2%BE%D9y%3F%90!%E6%9C%C3%BFk%E5%011%C6-%F5%C8N%04%DF%BD%FF%89%DFt%83DN%60%3E%F3%AB%A0%DE%1A%5Dg%BE%10Q%97%1B%40%9C%A8o%10%8F%5E%828%B4%1B%60%87%F6%02%26%85%1Ch%1E%C1%2B%5Bk%FF%86%EE%B7j%09%9A%DA%9B%ACe%A3%F9%EC%DA!9%B4%D5%A6%81%86%86%98%CC%3C%5B%40%FA%81%B3%E9%CB%23%94%C16Azo%05%D4%E1%C1%95a%3B%8A'%A0%E8%CC%17%22%85%1D%BA%00%A2%FA%DC%0A%94%D1%D1%8D%8B%3A%84%17B%C7%60%1A%25Z%FC%8D%00%00%00%00IEND%AEB%60%82"),url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%007%08%06%00%00%00%C4%DD%80C%00%00%03%1EiCCPICC%20Profile%00%00x%01%85T%DFk%D3P%14%FE%DAe%9D%B0%E1%8B%3Ag%11%09%3Eh%91ndStC%9C%B6kW%BA%CDZ%EA6%B7!H%9B%A6m%5C%9A%C6%24%ED~%B0%07%D9%8Bo%3A%C5w%F1%07%3E%F9%07%0C%D9%83o%7B%92%0D%C6%14a%F8%AC%88%22L%F6%22%B3%9E%9B4M'S%03%B9%F7%BB%DF%F9%EE9'%E7%E4%5E%A0%F9qZ%D3%14%2F%0F%14USO%C5%C2%FC%C4%E4%14%DF%F2%01%5E%1CC%2B%FChM%8B%86%16J%26G%40%0F%D3%B2y%EF%B3%F3%0E%1E%C6lt%EEo%DF%AB%FEc%D5%9A%95%0C%11%F0%1C%20%BE%945%C4%22%E1Y%A0i%5C%D4t%13%E0%D6%89%EF%9D15%C2%CDLsX%A7%04%09%1Fg8oc%81%E1%8C%8D%23%96f45%40%9A%09%C2%07%C5B%3AK%B8%408%98i%E0%F3%0D%D8%CE%81%14%E4'%26%A9%92.%8B%3C%ABER%2F%E5dE%B2%0C%F6%F0%1Fs%83%F2_%B0%A8%94%E9%9B%AD%E7%10%8Dm%9A%19N%D1%7C%8A%DE%1F9%7Dp%8C%E6%00%D5%C1%3F_%18%BDA%B8%9DpX6%E3%A35~B%CD%24%AE%11%26%BD%E7%EEti%98%EDe%9A%97Y)%12%25%1C%24%BCbT%AE3li%E6%0B%03%89%9A%E6%D3%ED%F4P%92%B0%9F4%BF43Y%F3%E3%EDP%95%04%EB1%C5%F5%F6KF%F4%BA%BD%D7%DB%91%93%07%E35%3E%A7)%D6%7F%40%FE%BD%F7%F5r%8A%E5y%92%F0%EB%B4%1E%8D%D5%F4%5B%92%3AV%DB%DB%E4%CD%A6%23%C3%C4wQ%3F%03HB%82%8E%1Cd(%E0%91B%0Ca%9Ac%C4%AA%F8L%16%19%22J%A4%D2itTy%B28%D6%3B(%93%96%ED%1CGx%C9_%0E%B8%5E%16%F5%5B%B2%B8%F6%E0%FB%9E%DD%25%D7%8E%BC%15%85%C5%B7%A3%D8Q%ED%B5%81%E9%BA%B2%13%9A%1B%7Fua%A5%A3n%E17%B9%E5%9B%1Bm%AB%0B%08Q%FE%8A%E5%B1H%5Ee%CAO%82Q%D7u6%E6%90S%97%FCu%0B%CF2%94%EE%25v%12X%0C%BA%AC%F0%5E%F8*l%0AO%85%17%C2%97%BF%D4%C8%CE%DE%AD%11%CB%80q%2C%3E%AB%9ES%CD%C6%EC%25%D2L%D2%EBd%B8%BF%8A%F5B%C6%18%F9%901CZ%9D%BE%24M%9C%8A9%F2%DAP%0B'%06w%82%EB%E6%E2%5C%2F%D7%07%9E%BB%CC%5D%E1%FA%B9%08%AD.r%23%8E%C2%17%F5E%7C!%F0%BE3%BE%3E_%B7o%88a%A7%DB%BE%D3d%EB%A31Z%EB%BB%D3%91%BA%A2%B1z%94%8F%DB'%F6%3D%8E%AA%13%19%B2%B1%BE%B1~V%08%2B%B4%A2cjJ%B3tO%00%03%25mN%97%F3%05%93%EF%11%84%0B%7C%88%AE-%89%8F%ABbW%90O%2B%0Ao%99%0C%5E%97%0CI%AFH%D9.%B0%3B%8F%ED%03%B6S%D6%5D%E6i_s9%F3*p%E9%1B%FD%C3%EB.7U%06%5E%19%C0%D1s.%17%A03u%E4%09%B0%7C%5E%2C%EB%15%DB%1F%3C%9E%B7%80%91%3B%DBc%AD%3Dma%BA%8B%3EV%AB%DBt.%5B%1E%01%BB%0F%AB%D5%9F%CF%AA%D5%DD%E7%E4%7F%0Bx%A3%FC%06%A9%23%0A%D6%C2%A1_2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%00%3AIDAT8%11c%FC%FF%FF%7F%18%03%1A%60%01%F2%3F%A0%891%80%04%FF%11-%F8%17%9BJ%E2%05%B1ZD%81v%26t%E7%80%F8%A3%82h%A12%1A%20%A3%01%02%0F%01%BA%25%06%00%19%C0%0D%AEF%D5%3ES%00%00%00%00IEND%AEB%60%82");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;-moz-border-radius: 2px;-webkit-border-radius: 2px;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%11%00%00%00%09%08%06%00%00%00%D4%E8%C7%0C%00%00%03%1EiCCPICC%20Profile%00%00x%01%85T%DFk%D3P%14%FE%DAe%9D%B0%E1%8B%3Ag%11%09%3Eh%91ndStC%9C%B6kW%BA%CDZ%EA6%B7!H%9B%A6m%5C%9A%C6%24%ED~%B0%07%D9%8Bo%3A%C5w%F1%07%3E%F9%07%0C%D9%83o%7B%92%0D%C6%14a%F8%AC%88%22L%F6%22%B3%9E%9B4M'S%03%B9%F7%BB%DF%F9%EE9'%E7%E4%5E%A0%F9qZ%D3%14%2F%0F%14USO%C5%C2%FC%C4%E4%14%DF%F2%01%5E%1CC%2B%FChM%8B%86%16J%26G%40%0F%D3%B2y%EF%B3%F3%0E%1E%C6lt%EEo%DF%AB%FEc%D5%9A%95%0C%11%F0%1C%20%BE%945%C4%22%E1Y%A0i%5C%D4t%13%E0%D6%89%EF%9D15%C2%CDLsX%A7%04%09%1Fg8oc%81%E1%8C%8D%23%96f45%40%9A%09%C2%07%C5B%3AK%B8%408%98i%E0%F3%0D%D8%CE%81%14%E4'%26%A9%92.%8B%3C%ABER%2F%E5dE%B2%0C%F6%F0%1Fs%83%F2_%B0%A8%94%E9%9B%AD%E7%10%8Dm%9A%19N%D1%7C%8A%DE%1F9%7Dp%8C%E6%00%D5%C1%3F_%18%BDA%B8%9DpX6%E3%A35~B%CD%24%AE%11%26%BD%E7%EEti%98%EDe%9A%97Y)%12%25%1C%24%BCbT%AE3li%E6%0B%03%89%9A%E6%D3%ED%F4P%92%B0%9F4%BF43Y%F3%E3%EDP%95%04%EB1%C5%F5%F6KF%F4%BA%BD%D7%DB%91%93%07%E35%3E%A7)%D6%7F%40%FE%BD%F7%F5r%8A%E5y%92%F0%EB%B4%1E%8D%D5%F4%5B%92%3AV%DB%DB%E4%CD%A6%23%C3%C4wQ%3F%03HB%82%8E%1Cd(%E0%91B%0Ca%9Ac%C4%AA%F8L%16%19%22J%A4%D2itTy%B28%D6%3B(%93%96%ED%1CGx%C9_%0E%B8%5E%16%F5%5B%B2%B8%F6%E0%FB%9E%DD%25%D7%8E%BC%15%85%C5%B7%A3%D8Q%ED%B5%81%E9%BA%B2%13%9A%1B%7Fua%A5%A3n%E17%B9%E5%9B%1Bm%AB%0B%08Q%FE%8A%E5%B1H%5Ee%CAO%82Q%D7u6%E6%90S%97%FCu%0B%CF2%94%EE%25v%12X%0C%BA%AC%F0%5E%F8*l%0AO%85%17%C2%97%BF%D4%C8%CE%DE%AD%11%CB%80q%2C%3E%AB%9ES%CD%C6%EC%25%D2L%D2%EBd%B8%BF%8A%F5B%C6%18%F9%901CZ%9D%BE%24M%9C%8A9%F2%DAP%0B'%06w%82%EB%E6%E2%5C%2F%D7%07%9E%BB%CC%5D%E1%FA%B9%08%AD.r%23%8E%C2%17%F5E%7C!%F0%BE3%BE%3E_%B7o%88a%A7%DB%BE%D3d%EB%A31Z%EB%BB%D3%91%BA%A2%B1z%94%8F%DB'%F6%3D%8E%AA%13%19%B2%B1%BE%B1~V%08%2B%B4%A2cjJ%B3tO%00%03%25mN%97%F3%05%93%EF%11%84%0B%7C%88%AE-%89%8F%ABbW%90O%2B%0Ao%99%0C%5E%97%0CI%AFH%D9.%B0%3B%8F%ED%03%B6S%D6%5D%E6i_s9%F3*p%E9%1B%FD%C3%EB.7U%06%5E%19%C0%D1s.%17%A03u%E4%09%B0%7C%5E%2C%EB%15%DB%1F%3C%9E%B7%80%91%3B%DBc%AD%3Dma%BA%8B%3EV%AB%DBt.%5B%1E%01%BB%0F%AB%D5%9F%CF%AA%D5%DD%E7%E4%7F%0Bx%A3%FC%06%A9%23%0A%D6%C2%A1_2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%00%B5IDAT(%15%A5%91%3D%0E%02!%10%85ac%E1%05%D6%CE%D6%C6%CE%D2%E8%ED%CD%DE%C0%C6%D6N.%E0V%F8%3D%9Ca%891XH%C2%BE%D9y%3F%90!%E6%9C%C3%BFk%E5%011%C6-%F5%C8N%04%DF%BD%FF%89%DFt%83DN%60%3E%F3%AB%A0%DE%1A%5Dg%BE%10Q%97%1B%40%9C%A8o%10%8F%5E%828%B4%1B%60%87%F6%02%26%85%1Ch%1E%C1%2B%5Bk%FF%86%EE%B7j%09%9A%DA%9B%ACe%A3%F9%EC%DA!9%B4%D5%A6%81%86%86%98%CC%3C%5B%40%FA%81%B3%E9%CB%23%94%C16Azo%05%D4%E1%C1%95a%3B%8A'%A0%E8%CC%17%22%85%1D%BA%00%A2%FA%DC%0A%94%D1%D1%8D%8B%3A%84%17B%C7%60%1A%25Z%FC%8D%00%00%00%00IEND%AEB%60%82"),url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%007%08%06%00%00%00%C4%DD%80C%00%00%03%1EiCCPICC%20Profile%00%00x%01%85T%DFk%D3P%14%FE%DAe%9D%B0%E1%8B%3Ag%11%09%3Eh%91ndStC%9C%B6kW%BA%CDZ%EA6%B7!H%9B%A6m%5C%9A%C6%24%ED~%B0%07%D9%8Bo%3A%C5w%F1%07%3E%F9%07%0C%D9%83o%7B%92%0D%C6%14a%F8%AC%88%22L%F6%22%B3%9E%9B4M'S%03%B9%F7%BB%DF%F9%EE9'%E7%E4%5E%A0%F9qZ%D3%14%2F%0F%14USO%C5%C2%FC%C4%E4%14%DF%F2%01%5E%1CC%2B%FChM%8B%86%16J%26G%40%0F%D3%B2y%EF%B3%F3%0E%1E%C6lt%EEo%DF%AB%FEc%D5%9A%95%0C%11%F0%1C%20%BE%945%C4%22%E1Y%A0i%5C%D4t%13%E0%D6%89%EF%9D15%C2%CDLsX%A7%04%09%1Fg8oc%81%E1%8C%8D%23%96f45%40%9A%09%C2%07%C5B%3AK%B8%408%98i%E0%F3%0D%D8%CE%81%14%E4'%26%A9%92.%8B%3C%ABER%2F%E5dE%B2%0C%F6%F0%1Fs%83%F2_%B0%A8%94%E9%9B%AD%E7%10%8Dm%9A%19N%D1%7C%8A%DE%1F9%7Dp%8C%E6%00%D5%C1%3F_%18%BDA%B8%9DpX6%E3%A35~B%CD%24%AE%11%26%BD%E7%EEti%98%EDe%9A%97Y)%12%25%1C%24%BCbT%AE3li%E6%0B%03%89%9A%E6%D3%ED%F4P%92%B0%9F4%BF43Y%F3%E3%EDP%95%04%EB1%C5%F5%F6KF%F4%BA%BD%D7%DB%91%93%07%E35%3E%A7)%D6%7F%40%FE%BD%F7%F5r%8A%E5y%92%F0%EB%B4%1E%8D%D5%F4%5B%92%3AV%DB%DB%E4%CD%A6%23%C3%C4wQ%3F%03HB%82%8E%1Cd(%E0%91B%0Ca%9Ac%C4%AA%F8L%16%19%22J%A4%D2itTy%B28%D6%3B(%93%96%ED%1CGx%C9_%0E%B8%5E%16%F5%5B%B2%B8%F6%E0%FB%9E%DD%25%D7%8E%BC%15%85%C5%B7%A3%D8Q%ED%B5%81%E9%BA%B2%13%9A%1B%7Fua%A5%A3n%E17%B9%E5%9B%1Bm%AB%0B%08Q%FE%8A%E5%B1H%5Ee%CAO%82Q%D7u6%E6%90S%97%FCu%0B%CF2%94%EE%25v%12X%0C%BA%AC%F0%5E%F8*l%0AO%85%17%C2%97%BF%D4%C8%CE%DE%AD%11%CB%80q%2C%3E%AB%9ES%CD%C6%EC%25%D2L%D2%EBd%B8%BF%8A%F5B%C6%18%F9%901CZ%9D%BE%24M%9C%8A9%F2%DAP%0B'%06w%82%EB%E6%E2%5C%2F%D7%07%9E%BB%CC%5D%E1%FA%B9%08%AD.r%23%8E%C2%17%F5E%7C!%F0%BE3%BE%3E_%B7o%88a%A7%DB%BE%D3d%EB%A31Z%EB%BB%D3%91%BA%A2%B1z%94%8F%DB'%F6%3D%8E%AA%13%19%B2%B1%BE%B1~V%08%2B%B4%A2cjJ%B3tO%00%03%25mN%97%F3%05%93%EF%11%84%0B%7C%88%AE-%89%8F%ABbW%90O%2B%0Ao%99%0C%5E%97%0CI%AFH%D9.%B0%3B%8F%ED%03%B6S%D6%5D%E6i_s9%F3*p%E9%1B%FD%C3%EB.7U%06%5E%19%C0%D1s.%17%A03u%E4%09%B0%7C%5E%2C%EB%15%DB%1F%3C%9E%B7%80%91%3B%DBc%AD%3Dma%BA%8B%3EV%AB%DBt.%5B%1E%01%BB%0F%AB%D5%9F%CF%AA%D5%DD%E7%E4%7F%0Bx%A3%FC%06%A9%23%0A%D6%C2%A1_2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%003IDAT8%11c%FC%FF%FF%7F%3E%03%1A%60%01%F2%3F%A3%891%80%04%FFQ%26%F8w%C0%B43%A1%DB%0C%E2%8F%0A%A2%85%CAh%80%8C%06%08%3C%04%E8%96%18%00%A3S%0D%CD%CF%D8%C1%9D%00%00%00%00IEND%AEB%60%82");background-repeat: no-repeat, repeat-x;background-position: center center, top left;}.ace_gutter-tooltip {background-color: #FFF;background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;display: inline-block;max-width: 500px;padding: 4px;position: fixed;z-index: 999999;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: default;white-space: pre-line;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%00%05%08%06%00%00%00%8Do%26%E5%00%00%004IDATx%DAe%8A%B1%0D%000%0C%C2%F2%2CK%96%BC%D0%8F9%81%88H%E9%D0%0E%96%C0%10%92%3E%02%80%5E%82%E4%A9*-%EEsw%C8%CC%11%EE%96w%D8%DC%E9*Eh%0C%151(%00%00%00%00IEND%AEB%60%82");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%00%05%08%06%00%00%00%8Do%26%E5%00%00%004IDATx%DAm%C7%C1%09%000%08C%D1%8C%ECE%C8E(%8E%EC%02)%1EZJ%F1%C1'%04%07I%E1%E5%EE%CAL%F5%A2%99%99%22%E2%D6%1FU%B5%FE0%D9x%A7%26Wz5%0E%D5%00%00%00%00IEND%AEB%60%82");}.ace_fold-widget.ace_closed {background-image: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%03%00%00%00%06%08%06%00%00%00%06%E5%24%0C%00%00%009IDATx%DA5%CA%C1%09%000%08%03%C0%AC*(%3E%04%C1%0D%BA%B1%23%A4Uh%E0%20%81%C0%CC%F8%82%81%AA%A2%AArGfr%88%08%11%11%1C%DD%7D%E0%EE%5B%F6%F6%CB%B8%05Q%2F%E9tai%D9%00%00%00%00IEND%AEB%60%82");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}/*** Dark version for fold widgets*/.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {-moz-transition: opacity 0.4s ease 0.05s;-webkit-transition: opacity 0.4s ease 0.05s;-o-transition: opacity 0.4s ease 0.05s;-ms-transition: opacity 0.4s ease 0.05s;transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {-moz-transition: opacity 0.05s ease 0.05s;-webkit-transition: opacity 0.05s ease 0.05s;-o-transition: opacity 0.05s ease 0.05s;-ms-transition: opacity 0.05s ease 0.05s;transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;border-radius: 2px;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}</style></head>
+    <!--[if lt IE 7]>  <body class="ie ie6 lte9 lte8 lte7 lang-en  vprev" > <![endif]-->
+<!--[if IE 7]>     <body class="ie ie7 lte9 lte8 lte7 lang-en  vprev" > <![endif]-->
+<!--[if IE 8]>     <body class="ie ie8 lte9 lte8 lang-en  vprev" > <![endif]-->
+<!--[if IE 9]>     <body class="ie ie9 lte9 lang-en  vprev" > <![endif]-->
+<!--[if gt IE 9]>  <body class="lang-en  vprev" > <![endif]-->
+<!--[if !IE]><!--> <body class="lang-en  vprev"> <!--<![endif]-->
+    <div class="external-styles-missing" style="
+        background: #f2dede;
+        font: 14px &quot;Helvetica Neue&quot;, Arial, Helvetica;
+        margin-bottom: 40px;
+        padding: 10px 20px;
+    ">
+        <p>If you're seeing this message, it means we're having trouble loading external resources for Khan Academy.</p>
+        <p>
+            
+            If you're behind a web filter, please make sure that the domains <strong>*.kastatic.org</strong> and <strong>*.kasandbox.org</strong> are unblocked.
+            <span id="inaccurate-clock-warning"></span>
+            
+        </p>
+    </div>
+    <div id="outer-wrapper" class="clearfix new-header homepage-pure-signup">
+
+    <div id="top-header-container">
+        <div id="top-header" class="new">
+<nav class="sitewide-navigation">
+    <span class="links nav-subheader">
+        
+        <a id="header-logo" href="https://www.khanacademy.org/" class="nav-link no-menu show-demo-dialog" data-tag="Header" aria-label="Khan Academy"><span class="logotype"><span class="logotype-khan">Khan</span><span class="logotype-academy">Academy</span></span></a>
+
+        
+        <div class="watch-link dropdown">
+        <a class="nav-link dropdown-toggle show-demo-dialog" href="https://www.khanacademy.org/cs/new#" data-hasdropdownbehavior="true"><span>Learn <i class="icon-chevron-down"></i></span></a>
+        
+
+
+<ul class="topic-browser-menu dropdown-menu new none-active" data-role="listview" data-inset="true">
+
+  
+  <li>
+    
+      <a href="https://www.khanacademy.org/mission" class="menulink">Dashboard</a>
+    
+  </li>
+  <li>
+    <a href="https://www.khanacademy.org/exercisedashboard" class="menulink">Knowledge Map</a>
+  </li>
+  <li class="has-divider"></li>
+
+  
+  
+    
+      <li class="level0 has-submenu">
+        <a data-tag="TopicBrowserPulldown" class="menulink" href="https://www.khanacademy.org/cs/new#">Math
+        <i class="icon-chevron-right"></i>
+        <i class="icon-chevron-left"></i>
+        </a>
+        <div class="dropdown-menu no-submenus sub-menu-custom math domain-color">
+          <div class="submenu-title"><a href="https://www.khanacademy.org/math" class="topic-link">Math</a><a href="https://www.khanacademy.org/exercisedashboard" class="km-link">Knowledge Map</a></div>
+          <div class="subjects-header"><strong>Subjects</strong></div>
+          <ul class="clearfix">
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/early-math" data-tag="TopicBrowserPulldown" class="menulink">Early math</a>
+            </li>
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/differential-calculus" data-tag="TopicBrowserPulldown" class="menulink">Differential calculus</a>
+            </li>
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/arithmetic" data-tag="TopicBrowserPulldown" class="menulink">Arithmetic</a>
+            </li>
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/integral-calculus" data-tag="TopicBrowserPulldown" class="menulink">Integral calculus</a>
+            </li>
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/pre-algebra" data-tag="TopicBrowserPulldown" class="menulink">Pre-algebra</a>
+            </li>
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/multivariable-calculus" data-tag="TopicBrowserPulldown" class="menulink">Multivariable calculus</a>
+            </li>
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/algebra" data-tag="TopicBrowserPulldown" class="menulink">Algebra I</a>
+            </li>
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/differential-equations" data-tag="TopicBrowserPulldown" class="menulink">Differential equations</a>
+            </li>
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/geometry" data-tag="TopicBrowserPulldown" class="menulink">Geometry</a>
+            </li>
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/linear-algebra" data-tag="TopicBrowserPulldown" class="menulink">Linear algebra</a>
+            </li>
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/algebra2" data-tag="TopicBrowserPulldown" class="menulink">Algebra II</a>
+            </li>
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/applied-math" data-tag="TopicBrowserPulldown" class="menulink">Applied math</a>
+            </li>
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/trigonometry" data-tag="TopicBrowserPulldown" class="menulink">Trigonometry</a>
+            </li>
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/recreational-math" data-tag="TopicBrowserPulldown" class="menulink">Recreational math</a>
+            </li>
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/probability" data-tag="TopicBrowserPulldown" class="menulink">Probability and statistics</a>
+            </li>
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/competition-math" data-tag="TopicBrowserPulldown" class="menulink">Math contests</a>
+            </li>
+          
+            <li class="level1 math ">
+              <a href="https://www.khanacademy.org/math/precalculus" data-tag="TopicBrowserPulldown" class="menulink">Precalculus</a>
+            </li>
+          
+          </ul>
+          
+            <div class="grade-levels">
+              <strong>Grade level (U.S.):</strong>
+              
+                <a href="https://www.khanacademy.org/math/early-math" data-tag="TopicBrowserPulldown" class="menulink">K–2</a>
+              
+                <a href="https://www.khanacademy.org/math/cc-third-grade-math" data-tag="TopicBrowserPulldown" class="menulink">3</a>
+              
+                <a href="https://www.khanacademy.org/math/cc-fourth-grade-math" data-tag="TopicBrowserPulldown" class="menulink">4</a>
+              
+                <a href="https://www.khanacademy.org/math/cc-fifth-grade-math" data-tag="TopicBrowserPulldown" class="menulink">5</a>
+              
+                <a href="https://www.khanacademy.org/math/cc-sixth-grade-math" data-tag="TopicBrowserPulldown" class="menulink">6</a>
+              
+                <a href="https://www.khanacademy.org/math/cc-seventh-grade-math" data-tag="TopicBrowserPulldown" class="menulink">7</a>
+              
+                <a href="https://www.khanacademy.org/math/cc-eighth-grade-math" data-tag="TopicBrowserPulldown" class="menulink">8</a>
+              
+            </div>
+          
+        </div>
+      </li>
+    
+  
+    
+      <li class="level0 has-submenu">
+        <a data-tag="TopicBrowserPulldown" class="menulink" href="https://www.khanacademy.org/cs/new#">Science 
+        <i class="icon-chevron-right"></i>
+        <i class="icon-chevron-left"></i>
+        </a>
+        <div class="dropdown-menu no-submenus sub-menu-custom science domain-color">
+          <div class="submenu-title">Science </div>
+          <div class="subjects-header"><strong>Subjects</strong></div>
+          <ul class="clearfix">
+          
+            <li class="level1 science ">
+              <a href="https://www.khanacademy.org/science/biology" data-tag="TopicBrowserPulldown" class="menulink">Biology</a>
+            </li>
+          
+            <li class="level1 science ">
+              <a href="https://www.khanacademy.org/science/cosmology-and-astronomy" data-tag="TopicBrowserPulldown" class="menulink">Cosmology and astronomy</a>
+            </li>
+          
+            <li class="level1 science ">
+              <a href="https://www.khanacademy.org/science/physics" data-tag="TopicBrowserPulldown" class="menulink">Physics</a>
+            </li>
+          
+            <li class="level1 science ">
+              <a href="https://www.khanacademy.org/science/health-and-medicine" data-tag="TopicBrowserPulldown" class="menulink">Health and medicine</a>
+            </li>
+          
+            <li class="level1 science ">
+              <a href="https://www.khanacademy.org/science/chemistry" data-tag="TopicBrowserPulldown" class="menulink">Chemistry</a>
+            </li>
+          
+            <li class="level1 science ">
+              <a href="https://www.khanacademy.org/science/discoveries-projects" data-tag="TopicBrowserPulldown" class="menulink">Discoveries and projects</a>
+            </li>
+          
+            <li class="level1 science ">
+              <a href="https://www.khanacademy.org/science/organic-chemistry" data-tag="TopicBrowserPulldown" class="menulink">Organic chemistry</a>
+            </li>
+          
+          </ul>
+          
+        </div>
+      </li>
+    
+  
+    
+      <li class="level0 has-submenu">
+        <a data-tag="TopicBrowserPulldown" class="menulink" href="https://www.khanacademy.org/cs/new#">Economics and finance
+        <i class="icon-chevron-right"></i>
+        <i class="icon-chevron-left"></i>
+        </a>
+        <div class="dropdown-menu no-submenus sub-menu-custom economics-finance-domain domain-color">
+          <div class="submenu-title">Economics and finance</div>
+          <div class="subjects-header"><strong>Subjects</strong></div>
+          <ul class="clearfix">
+          
+            <li class="level1 economics-finance-domain ">
+              <a href="https://www.khanacademy.org/economics-finance-domain/microeconomics" data-tag="TopicBrowserPulldown" class="menulink">Microeconomics</a>
+            </li>
+          
+            <li class="level1 economics-finance-domain ">
+              <a href="https://www.khanacademy.org/economics-finance-domain/core-finance" data-tag="TopicBrowserPulldown" class="menulink">Finance and capital markets</a>
+            </li>
+          
+            <li class="level1 economics-finance-domain ">
+              <a href="https://www.khanacademy.org/economics-finance-domain/macroeconomics" data-tag="TopicBrowserPulldown" class="menulink">Macroeconomics</a>
+            </li>
+          
+            <li class="level1 economics-finance-domain ">
+              <a href="https://www.khanacademy.org/economics-finance-domain/entrepreneurship2" data-tag="TopicBrowserPulldown" class="menulink">Entrepreneurship</a>
+            </li>
+          
+          </ul>
+          
+        </div>
+      </li>
+    
+  
+    
+      <li class="level0 has-submenu">
+        <a data-tag="TopicBrowserPulldown" class="menulink" href="https://www.khanacademy.org/cs/new#">Arts and humanities
+        <i class="icon-chevron-right"></i>
+        <i class="icon-chevron-left"></i>
+        </a>
+        <div class="dropdown-menu no-submenus sub-menu-custom humanities domain-color">
+          <div class="submenu-title">Arts and humanities</div>
+          <div class="subjects-header"><strong>Subjects</strong></div>
+          <ul class="clearfix">
+          
+            <li class="level1 humanities ">
+              <a href="https://www.khanacademy.org/humanities/history" data-tag="TopicBrowserPulldown" class="menulink">History</a>
+            </li>
+          
+            <li class="level1 humanities ">
+              <a href="https://www.khanacademy.org/humanities/american-civics-subject" data-tag="TopicBrowserPulldown" class="menulink">American civics</a>
+            </li>
+          
+            <li class="level1 humanities ">
+              <a href="https://www.khanacademy.org/humanities/art-history" data-tag="TopicBrowserPulldown" class="menulink">Art history</a>
+            </li>
+          
+            <li class="level1 humanities ">
+              <a href="https://www.khanacademy.org/humanities/philosophy" data-tag="TopicBrowserPulldown" class="menulink">Philosophy</a>
+            </li>
+          
+          </ul>
+          
+        </div>
+      </li>
+    
+  
+    
+      <li class="level0 has-submenu">
+        <a data-tag="TopicBrowserPulldown" class="menulink" href="https://www.khanacademy.org/cs/new#">Computing
+        <i class="icon-chevron-right"></i>
+        <i class="icon-chevron-left"></i>
+        </a>
+        <div class="dropdown-menu no-submenus sub-menu-custom computing domain-color">
+          <div class="submenu-title">Computing</div>
+          <div class="subjects-header"><strong>Subjects</strong></div>
+          <ul class="clearfix">
+          
+            <li class="level1 computing ">
+              <a href="https://www.khanacademy.org/computing/cs" data-tag="TopicBrowserPulldown" class="menulink">Computer programming</a>
+            </li>
+          
+            <li class="level1 computing ">
+              <a href="https://www.khanacademy.org/computing/computer-science" data-tag="TopicBrowserPulldown" class="menulink">Computer science</a>
+            </li>
+          
+          </ul>
+          
+        </div>
+      </li>
+    
+  
+    
+      <li class="level0 has-submenu">
+        <a data-tag="TopicBrowserPulldown" class="menulink" href="https://www.khanacademy.org/cs/new#">Test prep
+        <i class="icon-chevron-right"></i>
+        <i class="icon-chevron-left"></i>
+        </a>
+        <div class="dropdown-menu no-submenus sub-menu-custom test-prep domain-color">
+          <div class="submenu-title">Test prep</div>
+          <div class="subjects-header"><strong>Subjects</strong></div>
+          <ul class="clearfix">
+          
+            <li class="level1 test-prep ">
+              <a href="https://www.khanacademy.org/test-prep/sat" data-tag="TopicBrowserPulldown" class="menulink">SAT </a>
+            </li>
+          
+            <li class="level1 test-prep ">
+              <a href="https://www.khanacademy.org/test-prep/cahsee-subject" data-tag="TopicBrowserPulldown" class="menulink">CAHSEE</a>
+            </li>
+          
+            <li class="level1 test-prep ">
+              <a href="https://www.khanacademy.org/test-prep/mcat" data-tag="TopicBrowserPulldown" class="menulink">MCAT</a>
+            </li>
+          
+            <li class="level1 test-prep ">
+              <a href="https://www.khanacademy.org/test-prep/iit-jee-subject" data-tag="TopicBrowserPulldown" class="menulink">IIT JEE</a>
+            </li>
+          
+            <li class="level1 test-prep ">
+              <a href="https://www.khanacademy.org/test-prep/gmat" data-tag="TopicBrowserPulldown" class="menulink">GMAT</a>
+            </li>
+          
+            <li class="level1 test-prep ">
+              <a href="https://www.khanacademy.org/test-prep/ap-art-history" data-tag="TopicBrowserPulldown" class="menulink">AP Art History</a>
+            </li>
+          
+          </ul>
+          
+        </div>
+      </li>
+    
+  
+    
+      <li class="level0 has-submenu">
+        <a data-tag="TopicBrowserPulldown" class="menulink" href="https://www.khanacademy.org/cs/new#">Partner content
+        <i class="icon-chevron-right"></i>
+        <i class="icon-chevron-left"></i>
+        </a>
+        <div class="dropdown-menu no-submenus sub-menu-custom partner-content domain-color">
+          <div class="submenu-title">Partner content</div>
+          <div class="subjects-header"><strong>Subjects</strong></div>
+          <ul class="clearfix">
+          
+            <li class="level1 partner-content ">
+              <a href="https://www.khanacademy.org/partner-content/MoMA" data-tag="TopicBrowserPulldown" class="menulink">The Museum of Modern Art</a>
+            </li>
+          
+            <li class="level1 partner-content ">
+              <a href="https://www.khanacademy.org/partner-content/crash-course1" data-tag="TopicBrowserPulldown" class="menulink">Crash Course</a>
+            </li>
+          
+            <li class="level1 partner-content ">
+              <a href="https://www.khanacademy.org/partner-content/getty-museum" data-tag="TopicBrowserPulldown" class="menulink">The J. Paul Getty Museum</a>
+            </li>
+          
+            <li class="level1 partner-content ">
+              <a href="https://www.khanacademy.org/partner-content/stanford-medicine" data-tag="TopicBrowserPulldown" class="menulink">Stanford School of Medicine</a>
+            </li>
+          
+            <li class="level1 partner-content ">
+              <a href="https://www.khanacademy.org/partner-content/CAS-biodiversity" data-tag="TopicBrowserPulldown" class="menulink">California Academy of Sciences</a>
+            </li>
+          
+            <li class="level1 partner-content ">
+              <a href="https://www.khanacademy.org/partner-content/mit-k12" data-tag="TopicBrowserPulldown" class="menulink">MIT+K12</a>
+            </li>
+          
+            <li class="level1 partner-content ">
+              <a href="https://www.khanacademy.org/partner-content/Exploratorium" data-tag="TopicBrowserPulldown" class="menulink">Exploratorium</a>
+            </li>
+          
+            <li class="level1 partner-content ">
+              <a href="https://www.khanacademy.org/partner-content/lebron-asks-subject" data-tag="TopicBrowserPulldown" class="menulink">LeBron asks</a>
+            </li>
+          
+            <li class="level1 partner-content ">
+              <a href="https://www.khanacademy.org/partner-content/asian-art-museum" data-tag="TopicBrowserPulldown" class="menulink">Asian Art Museum</a>
+            </li>
+          
+            <li class="level1 partner-content ">
+              <a href="https://www.khanacademy.org/partner-content/brookings-institution" data-tag="TopicBrowserPulldown" class="menulink">The Brookings Institution</a>
+            </li>
+          
+            <li class="level1 partner-content ">
+              <a href="https://www.khanacademy.org/partner-content/ssf-cci" data-tag="TopicBrowserPulldown" class="menulink">Silicon Schools Fund and Clayton Christensen Institute</a>
+            </li>
+          
+            <li class="level1 partner-content ">
+              <a href="https://www.khanacademy.org/partner-content/nasa" data-tag="TopicBrowserPulldown" class="menulink">NASA</a>
+            </li>
+          
+          </ul>
+          
+        </div>
+      </li>
+    
+  
+    
+      <li class="level0">
+        <a href="https://www.khanacademy.org/talks-and-interviews" data-tag="TopicBrowserPulldown" class="menulink">Talks and interviews</a>
+      </li>
+    
+  
+    
+      <li class="level0">
+        <a href="https://www.khanacademy.org/coach-res" data-tag="TopicBrowserPulldown" class="menulink">Coach and classroom resources</a>
+      </li>
+    
+  
+
+  
+  <li class="has-divider"></li>
+  <li>
+    <a href="https://www.khanacademy.org/library" data-tag="TopicBrowserPulldownBrowse" class="menulink">Browse all</a>
+  </li>
+</ul>
+
+
+        </div>
+
+        
+        
+            <a href="https://www.khanacademy.org/coach/reports" class="nav-link  no-menu coach-link"><span>Coach</span></a>
+        
+
+        
+        
+        
+    </span>
+</nav>
+
+<span id="page_auth">
+    
+    <span id="user-info"><span id="user-notifications"><span class="dropdown">
+    <span class="user-notifications-toggle dropdown-toggle" data-hasdropdownbehavior="true">
+        <a class="nav-link user-notification" href="javascript: void 0;">
+            <span>
+            <i class="icon-bell-alt icon-large brand-new">
+                <span class="notification-bubble">3</span>
+            </i>
+            <i class="icon-chevron-down"></i>
+            </span>
+        </a>
+    </span>
+    <ul class="outer-dropdown-menu dropdown-menu unloaded">
+        <li class="notifications-heading">Notifications</li>
+        <li class="antiscroll-wrap">
+            <ul class="inner-dropdown-menu antiscroll-inner dropdown-menu no-submenus">
+                <li class="loading"><img src="./(3) New Program   Computer Science   Khan Academy_files/throbber.gif"></li>
+                <li class="empty" style="display: none;"><div>No notifications. You can get back to learning!</div></li>
+            </ul>
+        </li>
+    </ul>
+</span>
+</span>
+
+<span class="dropdown">
+    <span class="username_and_notification dropdown-toggle" data-hasdropdownbehavior="true">
+        <a href="https://www.khanacademy.org/profile/_kag5zfmtoYW4tYWNhZGVteXJPCxIIVXNlckRhdGEiQXVzZXJfaWRfa2V5X2h0dHA6Ly9nb29nbGVpZC5raGFuYWNhZGVteS5vcmcvMTE0NDIxNjg1NzAxNDIzNTY4MTUzDA/" class="nav-link show-demo-dialog"><span><img class="user-avatar" src="./(3) New Program   Computer Science   Khan Academy_files/leaf-green.png"><span class="user-name">lemiant</span><i class="icon-chevron-down"></i></span></a>
+    </span>
+    <ul class="dropdown-menu no-submenus">
+        <a class="hover-card-link show-demo-dialog" href="https://www.khanacademy.org/profile/_kag5zfmtoYW4tYWNhZGVteXJPCxIIVXNlckRhdGEiQXVzZXJfaWRfa2V5X2h0dHA6Ly9nb29nbGVpZC5raGFuYWNhZGVteS5vcmcvMTE0NDIxNjg1NzAxNDIzNTY4MTUzDA/"></a>
+        
+        <div class="user-dropdown-controls clearfix">
+            
+
+            
+            <a class="simple-button right-control" href="https://www.khanacademy.org/settings/account">Settings</a>
+            
+
+            <!-- Facebook's JS logout requires the page_logout ID -->
+            <a id="page_logout" class="simple-button left-control" href="https://www.khanacademy.org/logout?continue=%2Fcs%2Fnew">Log out</a>
+        </div>
+    </ul>
+</span>
+
+
+
+
+</span>
+</span>
+
+<div id="search-box" class="new-large">
+    <form class="page-search" action="https://www.khanacademy.org/search" autocomplete="off">
+        <div class="typeahead-search">
+            <span class="twitter-typeahead" style="position: relative; display: inline-block;"><input class="tt-hint" type="text" autocomplete="off" spellcheck="off" disabled="" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; background: none 0px 50% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"><input id="search-input" type="text" placeholder="I want to learn…" name="page_search_query" value="" class="ui-corner-all placeholder show-demo-dialog simple-input search-input blur-on-esc tt-query" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;"><span style="position: absolute; left: -9999px; visibility: hidden; white-space: nowrap; font-family: &#39;Proxima Nova&#39;, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></span><span class="tt-dropdown-menu dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"></span></span><input type="submit" value=" " class="search-submit">
+            <i class="icon-search"></i>
+        </div>
+    </form>
+</div>
+</div>
+    </div>
+    
+    
+    
+    <div id="page-container">
+    <div id="page-container-inner">
+        
+        <div id="fb-root"></div>
+            <header>
+                
+                <nav id="page_sub_nav" class="clearfix">
+                    
+                       <b></b>
+        
+                </nav>
+                
+
+                
+                
+                
+            </header>
+            <noscript>
+            &lt;div class="noscript-warning"&gt;
+            &lt;p&gt;&lt;i class="icon-warning-sign"&gt;&lt;/i&gt; To log in and use all the features of Khan Academy, please enable JavaScript in your browser.&lt;/p&gt;
+            &lt;/div&gt;
+            </noscript>
+            
+            
+<article id="explorations">
+
+<div id="browser-notice-container">
+    <div id="browser-notice">
+        <h3>Uh oh!</h3>
+        <p>You're using a browser that doesn't support the features that we
+        need in order to run the code of this page. Please switch your
+        browser to one of the following in order for it to work correctly:</p>
+        <p>
+            <a href="https://www.google.com/chrome"><img src="./(3) New Program   Computer Science   Khan Academy_files/chrome.sm.png"></a>
+            <a href="http://www.mozilla.org/en-US/firefox/new/"><img src="./(3) New Program   Computer Science   Khan Academy_files/gecko.sm.png"></a>
+            <a href="http://www.apple.com/safari/"><img src="./(3) New Program   Computer Science   Khan Academy_files/webkit.sm.png"></a>
+        </p>
+        <hr>
+    </div>
+</div>
+<script>
+// Detect the features that we want
+// We also want Web Workers but the site will continue to work
+// even if they aren't present, so we don't check for them here.
+window.featureDetect = function() {
+    var canvas = document.createElement("canvas");
+    return !!(window.JSON && window.postMessage && canvas &&
+        canvas.getContext);
+};
+
+// Hide the browser notice and show the editor if the browser has
+// the features that we need to run.
+if (window.featureDetect()) {
+    document.documentElement.className += " scratchpad-has-features";
+}
+</script>
+<div class="scratchpad-page"><div>
+    
+    <!-- If the scratchpad is a project or it was forked from a project. -->
+    <div id="challenge-task-container" class="task-container cs">
+        <div class="task-header-container">
+            <div class="task-root-nav">
+                <a href="https://www.khanacademy.org/cs" class="domain">Computer Programming</a>
+                
+                    
+                
+            </div>
+            <div class="task-header domain-color">
+                
+
+                
+                <div class="buttons">
+
+                    
+                </div>
+
+                <!-- Title bar above editor + canvas -->
+                
+                <div class="title-box">
+                    <button id="edit-title" class="simple-button" style="display: none;">
+                        Edit Title</button>
+                    <h2 id="scratchpad-title" class="task-title hidden-title">New Program</h2>
+                <input class="title" style=""></div>
+                
+
+                
+                
+                
+                
+                <div class="clear"></div>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+    </div>
+    
+
+    
+    
+
+    
+
+    <!-- Main scratchpad content -->
+    <div class="scratchpad-wrap">
+        
+        <div class="spinoff-notice" style="display: none;">
+            <strong>You already have a spin-off of this program!</strong>
+            <a href="https://www.khanacademy.org/cs/new#spinoffs-tab-header" class="simple-button green pull-right"><span class="icon-th-list"></span> View Your Spin-offs</a>
+        </div>
+        
+
+        <!-- Canvases (Drawing + Output) -->
+        <div class="scratchpad-canvas-wrap" style="width: 402px;">
+            <div id="output" style="height: 400px;">
+                <!-- Extra data-src attribute to work around
+                     cross-origin access policies. -->
+                <iframe id="output-frame" src="/cs/exec.html" data-src="/cs/exec.html" style="width: 400px; height: 400px;"></iframe>
+                <canvas class="scratchpad-draw-canvas" style="display:none;" width="400" height="400"></canvas>
+
+                <div class="overlay disable-overlay" style="display:none;">
+                </div>
+
+                <div class="scratchpad-canvas-loading" style="display: none;">
+                    <img src="./(3) New Program   Computer Science   Khan Academy_files/throbber-full.gif">
+                    <span class="hide-text">Loading...</span>
+                </div>
+            </div>
+
+            <div class="scratchpad-toolbar">
+                <button id="restart-code" class="simple-button pull-right" style="display: none;">
+                    <span class="icon-refresh"></span>
+                    Restart</button>
+
+                <!-- Widgets for selecting colors to doodle on the canvas during
+                    recordings -->
+                
+                <!-- Save Button -->
+                
+                <button id="save-button" class="simple-button green pull-left" style="">Save</button>
+                
+                
+                
+            </div>
+        </div>
+
+        <!-- Editor -->
+        <div class="scratchpad-editor-wrap overlay-container" style="margin-right: 402px;">
+            <div id="editor-tabs">
+              <ul id="editor-tabs-links" style="display:none;">
+                <li><a href="https://www.khanacademy.org/cs/new#editor-tab">Code</a></li>
+              
+                <li><a href="https://www.khanacademy.org/cs/new#tests-editor-tab">Tests</a></li>
+              
+              </ul>
+              <div id="editor-tab">
+                <div class="scratchpad-editor ace_editor ace-tm ui-resizable" style="font-size: 14px; height: 400px;"><textarea class="ace_text-input" wrap="off" spellcheck="false" style="opacity: 0; height: 17px; width: 8px; right: 675px; bottom: 383px;"></textarea><div class="ace_gutter"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="margin-top: 0px; height: 434px; width: 41px;"><div class="ace_gutter-cell " style="height: 17px;">1</div></div><div class="ace_gutter-active-line" style="top: 0px; height: 17px;"></div></div><div class="ace_scroller" style="left: 41px; right: 0px; bottom: 0px;"><div class="ace_content" style="margin-top: 0px; width: 687px; height: 434px; margin-left: 0px;"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 644px; visibility: hidden;"></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_text-layer" style="padding: 0px 4px;"><div class="ace_line_group"><div class="ace_line" style="height:17px"></div></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer ace_hidden-cursors"><div class="ace_cursor" style="left: 4px; top: 0px; width: 8px; height: 17px;"></div></div></div></div><div style="height: auto; width: auto; top: -100px; left: -100px; visibility: hidden; position: fixed; overflow: visible; white-space: nowrap;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div><div class="ace_scrollbar" style="width: 29px; display: none; overflow-y: scroll; bottom: 0px;"><div class="ace_scrollbar-inner" style="width: 29px; height: 17px;"></div></div><div class="ace_scrollbar-h" style="height: 29px; display: none; overflow-x: scroll; left: 41px; right: 0px;"><div class="ace_scrollbar-inner" style="height: 29px; width: 687px;"></div></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div></div>
+                <div class="overlay disable-overlay" style="display:none;">
+                </div>
+
+                
+              </div>
+
+              
+              <div id="tests-editor-tab" style="display:none;">
+                <a href="https://docs.google.com/a/khanacademy.org/document/d/1_j04mrSUg6ZV-D455MqkamDXi6557xoTOkPXmcdKo_E/edit?usp=sharing" target="_blank">How To Make A Challenge</a>
+                <div id="tests-editor"></div>
+              </div>
+              
+            </div>
+
+            <div class="scratchpad-toolbar">
+                
+
+                <button class="scratchpad-editor-undo-button simple-button pull-left" style="display:none;">
+                    <span class="icon-undo"></span>
+                    Undo Change
+                </button>
+
+                
+                <button class="scratchpad-startover-button simple-button pull-left" style="display:none;">
+                    Start Over
+                </button>
+
+                
+                
+
+                <p id="save-progress-text" class="pull-right"></p>
+                
+
+                
+                
+                &nbsp;
+                
+            </div>
+        </div>
+
+        
+        
+
+        
+        <div class="documentation"><div class="prerendered topic-content-view-root">
+    <div class="content-pane-inner cs subject-color">
+        
+
+        <div id="tutorials" class="videos-list">
+        <div class="videos-list-inner">
+        <div class="videos-list-inner-inner">
+            <div class="cs-documentation-container">
+
+
+                <p>
+                    Quick Jump:
+                    <a href="https://www.khanacademy.org/cs/new#cs-documentation-shapes">Shapes</a>,
+                    <a href="https://www.khanacademy.org/cs/new#cs-documentation-complexshapes">Complex Shapes</a>,
+                    <a href="https://www.khanacademy.org/cs/new#cs-documentation-colors">Colors</a>,
+                    <a href="https://www.khanacademy.org/cs/new#cs-documentation-text">Text</a>,
+                    <a href="https://www.khanacademy.org/cs/new#cs-documentation-transforms">Transforms</a>,
+                    <a href="https://www.khanacademy.org/cs/new#cs-documentation-mouse">Mouse</a>,
+                    <a href="https://www.khanacademy.org/cs/new#cs-documentation-keyboard">Keyboard</a>,
+                    <a href="https://www.khanacademy.org/cs/new#cs-documentation-math">Math</a>,
+                    <a href="https://www.khanacademy.org/cs/new#cs-documentation-trig">Trig</a>,
+                    <a href="https://www.khanacademy.org/cs/new#cs-documentation-datetime">Date/Time</a>,
+                    <a href="https://www.khanacademy.org/cs/new#cs-documentation-debugging">Debugging</a>,
+                    <a href="https://www.khanacademy.org/cs/new#cs-documentation-js">JavaScript</a>
+                </p>
+
+                <h3 class="cs-documentation-bigheader">ProcessingJS</h3>
+
+                <div class="cs-documentation-section">
+                <h4 id="cs-documentation-shapes">Shapes</h4>
+                <ul>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/rectx-y-w-h/839496660" target="_blank">
+                            <div class="cs-documentation-image cs-documentation-sprite-rect"></div>
+                            <code>rect(x, y, w, h)</code>
+                        </a>
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/ellipsex-y-w-h/839435680" target="_blank">
+                            <div class="cs-documentation-image cs-documentation-sprite-ellipse"></div>
+                            <code>ellipse(x, y, w, h)</code>
+                        </a>
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/trianglex1-y1-x2-y2-x3-y3/839546599" target="_blank">
+                            <div class="cs-documentation-image cs-documentation-sprite-triangle"></div>
+                            <code>triangle(x1, y1, x2, y2, x3, y3)</code>
+                        </a>
+                    </li></div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/linex1-y1-x2-y2/827916099" target="_blank">
+                            <div class="cs-documentation-image cs-documentation-sprite-line"></div>
+                            <code>line(x1, y1, x2, y2)</code>
+                        </a>
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/pointx-y/827809834" target="_blank">
+                            <div class="cs-documentation-image cs-documentation-sprite-point"></div>
+                            <code>point(x, y)</code>
+                        </a>
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/arcx-y-w-h-start-stop/1903619297" target="_blank">
+                            <div class="cs-documentation-image cs-documentation-sprite-arc"></div>
+                            <code>arc(x, y, w, h, start, stop)</code>
+                        </a>
+                    </li></div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/bezierx1-y1-cx1-cy1-cx2-cy2-x2-y2/956920482" target="_blank">
+                            <div class="cs-documentation-image cs-documentation-sprite-bezier"></div>
+                            <code>bezier(x1, y1, cx1, cy1, cx2, cy2, x2, y2)</code>
+                        </a>
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/quadx1-y1-x2-y2-x3-y3-x4-y4/1907244018" target="_blank">
+                            <div class="cs-documentation-image cs-documentation-sprite-quad"></div>
+                            <code>quad(x1, y1, x2, y2, x3, y3, x4, y4)</code>
+                        </a>
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/imageimage-x-y/937672662" target="_blank">
+                            <div class="cs-documentation-image cs-documentation-sprite-image"></div>
+                            <code>image(image, x, y, width*, height*)</code>
+                        </a>
+                    </li></div>
+                </ul>
+                <p>See also:
+                    <a href="https://www.khanacademy.org/cs/ellipsemodemode/6709863212122112" target="_blank">
+                        <code>ellipseMode</code></a>,
+                    <a href="https://www.khanacademy.org/cs/rectmodemode/4556457341091840" target="_blank">
+                        <code>rectMode</code></a>,
+                    <a href="https://www.khanacademy.org/cs/imagemodemode/5295050787389440" target="_blank">
+                        <code>imageMode</code></a>,
+                    <a href="https://www.khanacademy.org/cs/strokecapmode/5288182060941312" target="_blank">
+                        <code>strokeCap</code></a>,
+                    <a href="https://www.khanacademy.org/cs/bezierpointa-b-c-d-t/4551007698681856" target="_blank">
+                        <code>bezierPoint</code></a>,
+                    <a href="https://www.khanacademy.org/cs/beziertangenta-b-c-d-t/4736929853603840" target="_blank">
+                        <code>bezierTangent</code></a>,
+                    <a href="https://www.khanacademy.org/cs/curve/5105742184972288" target="_blank">
+                        <code>curve</code></a>,
+                    <a href="https://www.khanacademy.org/cs/curvepointa-b-c-d-t/5879387094253568" target="_blank">
+                        <code>curvePoint</code></a>,
+                    <a href="https://www.khanacademy.org/cs/curvetangenta-b-c-d-t/4708940860358656" target="_blank">
+                        <code>curveTangent</code></a>,
+                    <a href="https://www.khanacademy.org/cs/curvetightnesssquishy/4792873740402688" target="_blank">
+                        <code>curveTightness</code></a>
+                </p>
+                </div>
+
+
+                <div class="cs-documentation-section">
+
+                <h4 id="cs-documentation-complexshapes">Complex Shapes</h4>
+                <ul>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/beginshapeendshape/5462945756610560" target="_blank">
+                            <div class="cs-documentation-image cs-documentation-sprite-beginshape"></div>
+                            <code>beginShape()</code>/
+                            <code>endShape()</code>/
+                            <code>vertex()</code>
+                        </a>
+                    </li></div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/curvevertexx-y/6499542019080192" target="_blank">
+                            <div class="cs-documentation-image cs-documentation-sprite-curvevertex"></div>
+                            <code>curveVertex()</code>
+                        </a>
+                    </li></div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/beziervertexcx1-cy1-cx2-cy2-x-y/5085481683386368" target="_blank">
+                            <div class="cs-documentation-image cs-documentation-sprite-beziervertex"></div>
+                            <code>bezierVertex()</code>
+                        </a>
+                    </li></div>
+                </ul>
+
+                <p>See also:
+                    <a href="https://www.khanacademy.org/cs/strokejoinmode/5662070842327040" target="_blank">
+                        <code>strokeJoin</code></a>,
+                    <a href="https://www.khanacademy.org/cs/curvetightnesssquishy/4792873740402688" target="_blank">
+                        <code>curveTightness</code></a>
+                </p>
+
+                </div>
+
+                <div class="cs-documentation-section">
+
+                <h4 id="cs-documentation-colors">Colors</h4>
+                <ul>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/backgroundr-g-b/839653892" target="_blank">
+                            <code>background(r, g, b)</code>
+                        </a>
+                        <br>
+                        Set the background color
+                    </li>
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/fillr-g-b/839774957" target="_blank">
+                            <code>fill(r, g, b)</code>
+                        </a>
+                        <br>
+                        Set the fill color for shapes
+                    </li>
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/nofill/877946290" target="_blank">
+                            <code>noFill()</code>
+                        </a>
+                        <br>
+                        Turn off fill for shapes
+                    </li>
+                    </div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/stroker-g-b/839545910" target="_blank">
+                            <code>stroke(r, g, b)</code>
+                        </a>
+                        <br>
+                        Set the outline color for shapes
+                    </li>
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/strokeweightthickness/877859744" target="_blank">
+                            <code>strokeWeight(thickness)</code>
+                        </a>
+                        <br>
+                        Change the thickness of lines and outlines
+                    </li>
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/nostroke/839859412" target="_blank">
+                            <code>noStroke()</code>
+                        </a>
+                        <br>
+                        Turn off outlines for shapes
+                    </li>
+                    </div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/colorr-g-b/957020020" target="_blank">
+                            <code>color(r, g, b)</code>
+                        </a>
+                        <br>
+                        Store a color in a variable
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/blendcolorc1-c2-mode/4530750216994816" target="_blank">
+                            <code>blendColor(c1, c2, MODE)</code>
+                        </a>
+                        <br>
+                        Blend two colors together
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/lerpcolorc1-c2-amount/4759935778816000" target="_blank">
+                            <code>lerpColor(c1, c2, amount)</code>
+                        </a>
+                        <br>
+                        Find color between 2 colors
+                    </li></div>
+                </ul>
+                <p>
+                    See also:
+                    <a href="https://www.khanacademy.org/cs/colormode/5833774306689024" target="_blank"><code>colorMode</code></a>,
+                    <a href="https://www.khanacademy.org/cs/redcolor/5102159326609408" target="_blank"><code>red</code></a>,
+                    <a href="https://www.khanacademy.org/cs/greencolor/5877638103040000" target="_blank"><code>green</code></a>,
+                    <a href="https://www.khanacademy.org/cs/bluecolor/5177743654256640" target="_blank"><code>blue</code></a>,
+                    <a href="https://www.khanacademy.org/cs/alphacolor/6687311345483776" target="_blank"><code>alpha</code></a>,
+                    <a href="https://www.khanacademy.org/cs/huecolor/6620387366404096" target="_blank"><code>hue</code></a>,
+                    <a href="https://www.khanacademy.org/cs/saturationcolor/6358678768713728" target="_blank"><code>saturation</code></a>,
+                    <a href="https://www.khanacademy.org/cs/brightnesscolor/5888575639912448" target="_blank"><code>brightness</code></a>
+                </p>
+
+                </div>
+
+                <div class="cs-documentation-section">
+                <h4 id="cs-documentation-text">Text</h4>
+                <ul>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/texttext-x-y/937624625" target="_blank">
+                            <code>text(text, x, y)</code>
+                        </a>
+                        <br>
+                        Draw some text
+                    </li></div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/textfontfont-size/940030209" target="_blank">
+                            <code>textFont(font, size*)</code>
+                        </a>
+                        <br>
+                        Changes the font of text
+                    </li></div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/textsizesize/937728198" target="_blank">
+                            <code>textSize(size)</code>
+                        </a>
+                        <br>
+                        Change the size of text
+                    </li></div>
+                </ul>
+                <p>
+                    See also:
+                    <a href="https://www.khanacademy.org/cs/textwidthstr/4799257177489408" target="_blank">
+                    <code>textWidth</code></a>,
+                    <a href="https://www.khanacademy.org/cs/textascent/5975406490419200" target="_blank"><code>textAscent</code></a>,
+                    <a href="https://www.khanacademy.org/cs/textdescent/5638769772331008" target="_blank"><code>textDescent</code></a>,
+                    <a href="https://www.khanacademy.org/cs/textleadingdist/6369013500215296" target="_blank"><code>textLeading</code></a>,
+                    <a href="https://www.khanacademy.org/cs/textalignalign-yalign/4508437190803456" target="_blank">
+                    <code>textAlign</code>
+                    </a>
+
+                </p></div>
+
+                <div class="cs-documentation-section">
+                <h4 id="cs-documentation-transforms">Transforms</h4>
+                <ul>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/rotateangle/6386091934351360" target="_blank">
+                            <code>rotate(angle)</code>
+                        </a>
+                        <br>
+                        Rotate shapes by an angle
+                    </li></div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/scalex-y/6712922034143232" target="_blank">
+                            <code>scale(amount)</code>
+                        </a>
+                        <br>
+                        Scale shapes in both dimensions
+                    </li></div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/translatex-y/6505693083336704" target="_blank">
+                            <code>translate(x, y)</code>
+                        </a>
+                        <br>
+                        Translate shapes by an offset
+                    </li></div>
+                </ul>
+                <p>See also:
+                    <a href="https://www.khanacademy.org/cs/pushmatrixpopmatrix/5505194477486080" target="_blank">
+                        <code>pushMatrix()</code>/<code>popMatrix()</code>
+                    </a>,
+                    <a href="https://www.khanacademy.org/cs/resetmatrix/4597705468805120" target="_blank">
+                        <code>resetMatrix()</code>
+                    </a>,
+                    <a href="https://www.khanacademy.org/cs/printmatrix/5934612152844288" target="_blank">
+                        <code>printMatrix()</code>
+                    </a>
+                </p>
+                </div>
+
+                <div class="cs-documentation-section">
+                <h4>Environment</h4>
+                <ul>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/width/5933816543707136" target="_blank">
+                            <code>width</code>
+                        </a> /
+                        <a href="https://www.khanacademy.org/cs/height/4544657253990400" target="_blank">
+                            <code>height</code>
+                        </a>
+                        <br>
+                        The size of the canvas
+                    </li>
+                    </div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/frameratefps/6427359154536448" target="_blank">
+                            <code>frameRate(fps)</code>
+                        </a>
+                        <br>
+                        Change the frame rate of draw.
+                    </li>
+                    </div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/loop/5519218351013888" target="_blank">
+                            <code>loop()</code>
+                        </a> /
+                        <a href="https://www.khanacademy.org/cs/noloop/6342789906300928" target="_blank">
+                            <code>noLoop()</code>
+                        </a>
+                        <br>
+                        Cause the program to stop/start drawing.
+                    </li>
+                    </div>
+                </ul>
+                <p>
+                    See also:
+                    <a href="https://www.khanacademy.org/cs/framecount/5893935759097856" target="_blank"><code>frameCount</code></a>
+                </p>
+                </div>
+
+                <div class="cs-documentation-section">
+                <h4 id="cs-documentation-mouse">Mouse</h4>
+                <ul>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/mousex-mousey/5538427537719296" target="_blank">
+                            <code>mouseX, mouseY</code>
+                        </a>
+                        <br>
+                        Current coordinates of the mouse
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/pmousex-pmousey/5082026180870144" target="_blank">
+                            <code>pmouseX, pmouseY</code>
+                        </a>
+                        <br>
+                        Past coordinates of the mouse
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/mousebutton/6304348237725696" target="_blank">
+                            <code>mouseButton</code>
+                        </a>
+                        <br>
+                        Which button is pressed
+                    
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/mouseispressed/939933053" target="_blank">
+                            <code>mouseIsPressed</code>
+                        </a>
+                        <br>
+                        Whether mouse is being pressed
+                    </li></div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/var-mouseclicked-function/1897113673" target="_blank">
+                            <code>var mouseClicked = function() { };</code>
+                        </a>
+                        <br>
+                        Called when mouse is clicked
+                                        </li><li>
+                        <a href="https://www.khanacademy.org/cs/var-mousepressed-function/1907626123" target="_blank">
+                            <code>var mousePressed = function() { };</code>
+                        </a>
+                        <br>
+                        Called when mouse is pressed
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/var-mousereleased-function/1907670118" target="_blank">
+                            <code>var mouseReleased = function() { };</code>
+                        </a>
+                        <br>
+                        Called when mouse is released
+                    
+                    </li></div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/var-mousemoved-function/5689134450475008" target="_blank">
+                            <code>var mouseMoved = function() { };</code>
+                        </a>
+                        <br>
+                        Called when mouse is moved
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/var-mousedragged-function/6273229589053440" target="_blank">
+                            <code>var mouseDragged = function() { };</code>
+                        </a>
+                        <br>
+                        Called when mouse is released
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/var-mouseover-function/4681234999410688" target="_blank">
+                            <code>var mouseOver = function() { };</code>
+                        </a>
+                        <br>
+                        Called when mouse moves over canvas
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/var-mouseout-function/6643226391871488" target="_blank">
+                            <code>var mouseOut = function() { };</code>
+                        </a>
+                        <br>
+                        Called when mouse moves out of canvas
+                    </li></div>
+                </ul>
+                </div>
+                
+                <div class="cs-documentation-section">
+                <h4 id="cs-documentation-keyboard">Keyboard</h4>
+                <ul>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/key/5790940799172608" target="_blank">
+                            <code>key</code>
+                        </a>
+                        <br>
+                        Number representing which key is pressed
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/keycode/939888407" target="_blank">
+                            <code>keyCode</code>
+                        </a>
+                        <br>
+                        Number representing which key is pressed
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/keyispressed/939855509" target="_blank">
+                            <code>keyIsPressed</code>
+                        </a>
+                        <br>
+                        True if a key is being pressed, false otherwise
+                    </li></div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/var-keypressed-function/6270179101114368" target="_blank">
+                            <code>var keyPressed = function() { };</code>
+                        </a>
+                        <br>
+                        Called when a key is pressed
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/var-keyreleased-function/6349252120805376" target="_blank">
+                            <code>var keyReleased = function() { };</code>
+                        </a>
+                        <br>
+                        Called when a key is released
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/var-keytyped-function/5762464763346944" target="_blank">
+                            <code>var keyTyped = function() { };</code>
+                        </a>
+                        <br>
+                        Called when a key is typed
+                    </li></div>
+                    
+                </ul>
+                </div>
+                
+                <div class="cs-documentation-section">
+                <h4 id="cs-documentation-math">Math</h4>
+
+                <ul>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/randomlow-high/827911487" target="_blank">
+                            <code>random(low, high)</code>
+                        </a>
+                        <br>
+                        Generate a random number
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/distx1-y1-x2-y2/1917352082" target="_blank">
+                            <code>dist(x1, y1, x2, y2)</code>
+                        </a>
+                        <br>
+                        Calculates the distance between two points
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/constrainvalue-min-max/5870136103796736" target="_blank">
+                            <code>constrain(value, min, max)</code>
+                        </a>
+                        <br>Constrain value between min and max
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/minnum1-num2/4693347713155072" target="_blank">
+                            <code>min(num1, num2)</code>
+                        </a>
+                        <br>
+                        Return the minimum of two numbers
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/maxnum1-num2/4755409722146816" target="_blank">
+                            <code>max(num1, num2)</code>
+                        </a>
+                        <br>
+                        Return the maximum of two numbers
+                    </li></div>
+                    
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/absnum/877930637" target="_blank">
+                            <code>abs(num)</code>
+                        </a>
+                        <br>
+                        Take the absolute value of a number
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/lognum/877921884" target="_blank">
+                            <code>log(num)</code>
+                        </a>
+                        <br>
+                        Take the logarithm of a number
+                    
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/pownum-exponent/877858853" target="_blank">
+                            <code>pow(num, exponent)</code>
+                        </a>
+                        <br>
+                        Raise a number to an exponent
+                    </li>
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/sqnum/6588187426160640" target="_blank">
+                            <code>sq(num)</code>
+                        </a>
+                        <br>
+                        Square a number
+                    </li>
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/sqrtnum/6473360267542528" target="_blank">
+                            <code>sqrt(num)</code>
+                        </a>
+                        <br>
+                        Take the square root of a number
+                    </li>
+                    </div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/roundnum/5907281296228352" target="_blank">
+                            <code>round(num)</code>
+                        </a>
+                        <br>
+                        Return nearest whole number
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/ceil/5491781646942208" target="_blank">
+                            <code>ceil(num)</code>
+                        </a>
+                        <br>
+                        Return nearest whole number of greater/equal value
+                    
+                    </li><li>
+                        <a href="https://www.khanacademy.org/cs/floornum/5703004061696000" target="_blank">
+                            <code>floor(num)</code>
+                        </a>
+                        <br>
+                        Return nearest whole number of lesser/equal value
+                    </li>
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/pvectorx-y/5218818305556480" target="_blank">
+                            <code>PVector(x, y)</code>
+                        </a>
+                        <br>
+                        An object that describes a 2-dimensional vector
+                    </li>
+                    </div>
+                
+                <p>
+                    See also:
+                    <a href="https://www.khanacademy.org/cs/magx1-y1-not-working-yet/5983219002376192" target="_blank">
+                        <code>mag</code></a>,
+                    <a href="https://www.khanacademy.org/cs/expvalue/5228990398726144" target="_blank">
+                        <code>exp</code></a>,
+                    <a href="https://www.khanacademy.org/cs/mapvalue-low1-high1-low2-high2/4587974079545344" target="_blank">
+                        <code>map</code></a>,
+                    <a href="https://www.khanacademy.org/cs/normvalue-low-high/6581050767572992" target="_blank">
+                        <code>norm</code></a>,
+                    <a href="https://www.khanacademy.org/cs/lerpvalue1-value2-amount/6456916012171264" target="_blank">
+                        <code>lerp</code></a>,
+                    <a href="https://www.khanacademy.org/cs/noise/5618485581316096" target="_blank">
+                        <code>noise</code></a>,
+                    <a href="https://www.khanacademy.org/cs/noisedetailoctaves-falloff/6549875814563840" target="_blank">
+                        <code>noiseDetail</code></a>,
+                    <a href="https://www.khanacademy.org/cs/randomseed/5697038959247360" target="_blank">
+                        <code>Random.nextGaussian</code></a>
+                </p>
+            </ul></div>
+
+            <div class="cs-documentation-section">
+                <h4 id="cs-documentation-trig">Trigonometry</h4>
+
+                <ul>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/cosdeg/948226821" target="_blank">
+                            <code>cos(degrees)</code>
+                        </a>
+                        <br>
+                        Take the cosine of an angle
+                    </li>
+                    </div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/sindeg/948255306" target="_blank">
+                            <code>sin(degrees)</code>
+                        </a>
+                        <br>
+                        Take the sine of an angle
+                    </li>
+                    </div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/tandeg/948018680" target="_blank">
+                            <code>tan(degrees)</code>
+                        </a>
+                        <br>
+                        Take the tangent of an angle
+                    </li>
+                    </div>
+                </ul>
+                <p>
+                    See also:
+                    <a href="https://www.khanacademy.org/cs/acosval/4542953527705600" target="_blank">
+                        <code>acos</code></a>,
+                    <a href="https://www.khanacademy.org/cs/asinval/5061655520083968" target="_blank">
+                        <code>asin</code></a>,
+                    <a href="https://www.khanacademy.org/cs/atanval/4869834059808768" target="_blank">
+                        <code>atan</code></a>,
+                    <a href="https://www.khanacademy.org/cs/radiansangle/6628151023108096" target="_blank">
+                        <code>radians</code></a>,
+                    <a href="https://www.khanacademy.org/cs/degreesangle/6674991668002816" target="_blank">
+                        <code>degrees</code></a>,
+                    <a href="https://www.khanacademy.org/cs/anglemode-degrees-vs-radians/2350518561" target="_blank">
+                        <code>angleMode</code></a>
+                </p>
+            </div>
+
+            <div class="cs-documentation-section">
+                <h4 id="cs-documentation-datetime">Date &amp; Time</h4>
+
+                <ul>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/day/4526347808407552" target="_blank">
+                            <code>day()</code>
+                        </a>/
+                        <a href="https://www.khanacademy.org/cs/month/5388987023753216" target="_blank">
+                            <code>month()</code>
+                        </a>/
+                        <a href="https://www.khanacademy.org/cs/year/6216887939629056" target="_blank">
+                            <code>year()</code>
+                        </a>
+                        <br>
+                        Current date
+                    </li>
+                    </div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/hour/5806957302644736" target="_blank">
+                            <code>hour()</code>
+                        </a>/
+                        <a href="https://www.khanacademy.org/cs/minute/6638408210317312" target="_blank">
+                            <code>minute()</code>
+                        </a>/
+                        <a href="https://www.khanacademy.org/cs/second/5743886110556160" target="_blank">
+                            <code>second()</code>
+                        </a>
+                        <br>
+                        Current time
+                    </li>
+                    </div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/millis/5970545493409792" target="_blank">
+                            <code>millis()</code>
+                        </a>
+                        <br>
+                        Milliseconds ellapsed since program start
+                    </li>
+                    </div>
+            </ul></div>
+
+
+            <div class="cs-documentation-section">
+
+                <h4 id="cs-documentation-debugging">Debugging</h4>
+
+                <ul>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/debugarg1-arg2/939146973" target="_blank">
+                            <code>debug(arg1, arg2, ...)</code>
+                        </a>
+                        <br>
+                        Print to your browser's developer console
+                    </li>
+                    </div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/printlndata/6120466259378176" target="_blank">
+                            <code>println(data)</code>
+                        </a>
+                        <br>
+                        Print to the canvas console
+                    </li>
+                    </div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/printdata/5110798099677184" target="_blank">
+                            <code>print(data)</code>
+                        </a>
+                        <br>
+                        Print to the canvas console
+                    </li>
+                    </div>
+
+                </ul>
+            </div>
+
+            <div class="cs-documentation-section">
+
+                <h3 id="cs-documentation-js" class="cs-documentation-bigheader">JavaScript</h3>
+
+                <ul>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/var-drawwinston-function/877982168" target="_blank">
+                            <code>var drawWinston = function() { };</code>
+                        </a>
+                        <br>
+                        Define a new function
+                    </li>
+
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/if-x-20/957023758" target="_blank">
+                            <code>if (x &lt; 20) { ... }</code>
+                        </a>
+                        <br>
+                        Only run code if a certain condition is true
+                    </li>
+                    </div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/while-x-250/1907383465" target="_blank">
+                            <code>while (x &lt; 250) { ... }</code>
+                        </a>
+                        <br>
+                        Only run code while a certain condition is true
+                    </li>
+
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/for-var-i-0-i-8-i-1/877960284" target="_blank">
+                            <code>for (var i = 0; i &lt; 8; i += 1) { }</code>
+                        </a>
+                        <br>
+                        Repeat code a fixed number of times
+                    </li>
+                    </div>
+                    <div class="span4">
+                    <li>
+                        <a href="https://www.khanacademy.org/cs/var-array-0-1-2-3-4/957074792" target="_blank">
+                            <code>var array = [0, 1, 2, 3, 4];</code>
+                        </a>
+                        <br>
+                        Make an array of 5 numbers
+                    </li>
+                    </div>
+                </ul>
+                </div>
+
+                <div>
+                    <p>Our documentation does not cover the many ways
+                    to use JavaScript. Learn more at:</p>
+                    <ul class="styled-list">
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank">Mozilla Developer Network: JavaScript Guide</a>
+                        </li><li><a href="http://www.w3schools.com/js/" target="_blank">W3Schools JavaScript Tutorial</a>
+                        </li><li><a href="http://www.codecademy.com/tracks/javascript" target="_blank">Codecademy JS Lessons</a>
+                    </li></ul>
+                    <br>
+                </div>
+
+                <p>This reference is based on <a href="http://processingjs.org/reference/" target="_blank">ProcessingJS reference</a> and is licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">CC BY-NC-SA 2.0 license.</a></p><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">
+
+            </a></div><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">
+        </a></div><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">
+        </a></div><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">
+        </a></div><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">
+    </a></div><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">
+</a></div><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">
+</a></div>
+        
+        <div class="license">All code is owned by its respective author and made available under an <a href="http://opensource.org/licenses/mit-license.php">MIT license</a>. For more information please see the <a href="https://www.khanacademy.org/about/tos#5">Terms of Service</a>.</div>
+        
+    </div>
+
+    <div id="page-overlay" class="overlay" style="display: none;"></div>
+</div>
+</div>
+
+</article>
+
+            <div id="end-of-page-spacer">&nbsp;</div>
+
+    </div>
+    </div>
+    </div>
+    <div class="push"></div>
+    
+    
+        
+
+<footer id="footer">
+    <div class="footer-container">
+        <div class="row-fluid main-links">
+            <div class="span2">
+                <ul>
+                    <li class="heading footer-scroll-cue">About</li>
+                    <li><a href="https://www.khanacademy.org/about">Our Mission</a></li>
+                    <li><a href="https://www.khanacademy.org/about/the-team">Our Team</a></li>
+                    <li><a href="https://www.khanacademy.org/about/our-interns">Our Interns</a></li>
+                    <li><a href="https://www.khanacademy.org/about/our-content-specialists">Our Content Specialists</a></li>
+                    <li><a href="https://www.khanacademy.org/about/health-competition">Health Content Competition Winners</a></li>
+                </ul>
+            </div>
+            <div class="span2">
+                <ul>
+                    <li class="heading footer-scroll-cue">Help</li>
+                    
+                    <li><a href="https://www.khanacademy.org/reportissue?type=Defect&issue_labels=" data-tag="Footer" id="report" class="show-demo-dialog">Report a Problem</a></li>
+                    
+                    <li><a href="http://khanacademy.desk.com/">FAQ</a></li>
+
+                    <li class="heading spaced">Contact Us</li>
+                    <li><a href="http://khanacademy.desk.com/">Contact</a></li>
+                    <li><a href="http://khanacademy.desk.com/customer/portal/articles/441307-press-room">Press</a></li>
+                </ul>
+            </div>
+            <div class="span2">
+                <ul>
+                    <li class="heading footer-scroll-cue">Coaching</li>
+                    
+                    <li><a href="https://www.khanacademy.org/coach/reports">Coach Reports</a></li>
+                    <li><a href="https://www.khanacademy.org/coach-res">Coach Resources</a></li>
+                    <li><a href="https://www.khanacademy.org/coach-res/case-studies">Case Studies</a></li>
+                    <li><a href="https://www.khanacademy.org/commoncore">Common Core</a></li>
+
+                    
+                </ul>
+            </div>
+            <div class="span2">
+                <ul>
+                    <li class="heading footer-scroll-cue">Careers</li>
+                    <li><a href="https://www.khanacademy.org/careers">Full Time</a></li>
+                    <li><a href="https://www.khanacademy.org/careers/interns">Internships</a></li>
+
+                    <li class="heading spaced">Contribute</li>
+                    <li><a href="https://www.khanacademy.org/donate">Donate</a></li>
+                    <li><a href="https://www.khanacademy.org/contribute">Volunteer</a></li>
+                    <li><a href="https://www.khanacademy.org/about/our-supporters">Our Supporters</a></li>
+                    <li><a href="http://shop.khanacademy.org/">Shop KA</a></li>
+                </ul>
+            </div>
+            <div class="span3">
+                <ul>
+                    <li class="heading nowrap footer-scroll-cue">
+                        International
+                        <i class="icon-globe i18n-icon"></i>
+                    </li>
+                    
+                        
+                            <li><a href="https://www.khanacademy.org/settings/account">Change language</a></li>
+                        
+                    
+                    <li><a href="https://www.khanacademy.org/contribute">Translate our content</a></li>
+
+                    <li class="heading spaced">Social</li>
+                    <li><a class="google-analytics-link-track facebook show-demo-dialog" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Click&#39;, &#39;Facebook-Join-Header&#39;]);" href="http://www.facebook.com/khanacademy" title="Facebook">Facebook</a></li>
+                    <li><a class="google-analytics-link-track twitter show-demo-dialog" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Click&#39;, &#39;Twitter-Follow-Header&#39;]);" href="http://twitter.com/khanacademy" title="Twitter">Twitter</a></li>
+                    <li><a href="https://www.khanacademy.org/about/blog">Blog</a></li>
+                    <li><a href="http://life.khanacademy.org/">Life at KA</a></li>
+                </ul>
+            </div>
+
+            <div class="span1">
+                <img class="handtree" data-delayed-src="https://www.kastatic.org/images/khan-logo-vertical-transparent.png" alt="Khan Academy logo">
+            </div>
+        </div>
+
+        <div class="extra-links clearfix">
+            <div class="legal">
+                    <span><a href="https://www.khanacademy.org/about/tos">Terms of Use</a></span>
+            </div>
+            <div class="legal">
+                    
+                    <span><a href="https://www.khanacademy.org/about/privacy-policy">Privacy Notice (updated May 8, 2014)</a></span>
+            </div>
+            
+            <div class="copyright" title="Version: 0606-0942-33cf317d2a25.376366125980327060">
+                © 2014
+                
+                
+                Khan Academy <br>
+                Except where noted, all rights reserved.
+            </div>
+
+        </div>
+
+    </div>
+</footer>
+    
+
+    
+        <script>
+window.PackageManager = window.PackageManager || {
+    _q: [],
+    setLoaded: function() {
+        this._q.push.apply(this._q, arguments);
+    }
+};
+PackageManager.setLoaded("shared.css","moderation.css","discussion.css","tasks.css","scratchpad-challenge.css","scratchpads.css","intro.css","video.css","clarifications.css")</script>
+<script crossorigin="anonymous" src="./(3) New Program   Computer Science   Khan Academy_files/shared-package-594d0e326c39dfc06f9f9ea4d6096524.js"></script>
+<script>PackageManager.setLoaded("shared.js")</script>
+        
+    <script type="text/javascript" src="./(3) New Program   Computer Science   Khan Academy_files/userprogressjs"></script>
+    
+    
+
+    
+    <script type="text/javascript">
+      PackageManager.registerManifests({"stylesheets": [{"files": ["/genfiles/stylesheets/en/recommendations-package-ec978545be5d453501f01f6a6e9ae1f2.css"], "name": "recommendations.css"}, {"files": ["/genfiles/stylesheets/en/library-package-541de36af067b30b8d7ae5f85f443b67.css"], "name": "library.css"}, {"files": ["/genfiles/stylesheets/en/contentanalytics-package-b4daa03ca6afd7e1ace1972ce4f958a0.css"], "name": "contentanalytics.css"}, {"files": ["/genfiles/stylesheets/en/homepage-lite-package-0919b6db43e76f1face8d1c5cffbab17.css"], "name": "homepage-lite.css"}, {"files": ["/genfiles/stylesheets/en/discussion-package-a8ca7703864520c3b3d3667603526799.css"], "name": "discussion.css"}, {"files": ["/genfiles/stylesheets/en/profile-package-95fb1df58981932aa5b2aeca9765da83.css"], "dependencies": ["follow.css", "teams.css"], "name": "profile.css"}, {"files": ["/genfiles/stylesheets/en/tutorial-editor-package-1f0c7903cf8a482a782d72a7140187c4.css"], "name": "tutorial-editor.css"}, {"files": ["/genfiles/stylesheets/en/reports-package-525602ac9c3342b3b3db366a3c3a24c2.css"], "name": "reports.css"}, {"files": ["/genfiles/stylesheets/en/search-package-68848f941b503fc4a29cd8a40351aed2.css"], "name": "search.css"}, {"files": ["/genfiles/stylesheets/en/exercises-package-ed3afcfde6f81cda540f2c1f69ed8701.css"], "name": "exercises.css"}, {"files": ["/genfiles/stylesheets/en/coach-report-topic-package-25bca9102432f72db9ee67bf9cd3690a.css"], "name": "coach-report-topic.css"}, {"files": ["/genfiles/stylesheets/en/video-lite-package-edf7eb6026c2cde51a35bd031e9e9163.css"], "name": "video-lite.css"}, {"files": ["/genfiles/stylesheets/en/about-package-1f22bf7d5011509bdd6f246639000377.css"], "name": "about.css"}, {"files": ["/genfiles/stylesheets/en/katex-package-37adb06b9d99bffb746102e8435e214b.css"], "name": "katex.css"}, {"files": ["/genfiles/stylesheets/en/donate-package-9aa25239e0f9f59097a95a350bb5bfd6.css"], "name": "donate.css"}, {"files": ["/genfiles/stylesheets/en/tos-privacy-package-02760bea2642de221635b3986278df23.css"], "name": "tos-privacy.css"}, {"files": ["/genfiles/stylesheets/en/stories-package-a5c992e383ad5180dcafdb2ace38e7ad.css"], "name": "stories.css"}, {"files": ["/genfiles/stylesheets/en/editor-package-f48b9736880ed82a10c1e74e52c3c563.css"], "name": "editor.css"}, {"files": ["/genfiles/stylesheets/en/notifications-package-078858c5e560f91ea0ea51e0868721d1.css"], "name": "notifications.css"}, {"files": ["/genfiles/stylesheets/en/interns-package-a9df820740cc27f6d263ac8db1ef505d.css"], "name": "interns.css"}, {"files": ["/genfiles/stylesheets/en/contribute-package-b100f1e93c3a5538f8bde81860bb7941.css"], "name": "contribute.css"}, {"files": ["/genfiles/stylesheets/en/dashboard-package-51e3e448ddde08303bd02eff0b860ec6.css"], "name": "dashboard.css"}, {"files": ["/genfiles/stylesheets/en/exercise-search-package-d3c539ec47997dd55d64e4dfaf743111.css"], "name": "exercise-search.css"}, {"files": ["/genfiles/stylesheets/en/teams-package-20a66d8a8c780b52c14ae4a1c35cfe9b.css"], "name": "teams.css"}, {"files": ["/genfiles/stylesheets/en/shared-mobile-package-28bba08bb0a831728ee2893509f3774d.css"], "name": "shared-mobile.css"}, {"files": ["/genfiles/stylesheets/en/perseus-admin-package-ad254a7d2a52b34cfa4b89b8f7af127b.css"], "name": "perseus-admin.css"}, {"files": ["/genfiles/stylesheets/en/nav-package-50385a3b7450f65a24d0396dbb41f755.css"], "name": "nav.css"}, {"files": ["/genfiles/stylesheets/en/scratchpads-package-5509adc26c1834eccffc9fba9b8e710f.css"], "dependencies": ["scratchpad-challenge.css"], "name": "scratchpads.css"}, {"files": ["/genfiles/stylesheets/en/tutorial-package-14105b851e00e12aadf3552e4f86cad1.css"], "name": "tutorial.css"}, {"files": ["/genfiles/stylesheets/en/follow-package-e9da79340500c1aef21ef60112283bcd.css"], "name": "follow.css"}, {"files": ["/genfiles/stylesheets/en/topic-package-61b58e94683c16f606afb93acf8e5f8d.css"], "name": "topic.css"}, {"files": ["/genfiles/stylesheets/en/bigbingo-package-a9a2215559288ad9c8047d0a2a11d90e.css"], "name": "bigbingo.css"}, {"files": ["/genfiles/stylesheets/en/scratchpads-exec-package-74a9306e2bec1cc944a867c74556e1af.css"], "name": "scratchpads-exec.css"}, {"files": ["/genfiles/stylesheets/en/scratchpad-challenge-package-0cc625c55f3de2f6c8e4aa255eb0f978.css"], "name": "scratchpad-challenge.css"}, {"files": ["/genfiles/stylesheets/en/exerciseissues-package-b32782e29348d08fcf4a1fefb06689ce.css"], "name": "exerciseissues.css"}, {"files": ["/genfiles/stylesheets/en/settings-package-3e3290144e2e8a5a61c5326202aac5df.css"], "dependencies": ["profile-settings.css"], "name": "settings.css"}, {"files": ["/genfiles/stylesheets/en/issues-package-5671c5d6faadfab14c13d3aee75bbfae.css"], "name": "issues.css"}, {"files": ["/genfiles/stylesheets/en/parent-splash-package-b0dc94535257a664c79643e218fbe17f.css"], "name": "parent-splash.css"}, {"files": ["/genfiles/stylesheets/en/homepage-package-1cd3f41e58604f621d63ef552267c40c.css"], "name": "homepage.css"}, {"files": ["/genfiles/stylesheets/en/translation-editor-package-2f7d8e790085a59626b0cfe9041b0029.css"], "name": "translation-editor.css"}, {"files": ["/genfiles/stylesheets/en/cs-programs-package-e6ac4c2b53bfab27b62d44fcbe971ece.css"], "name": "cs-programs.css"}, {"files": ["/genfiles/stylesheets/en/topic-editor-package-062a2a031a1c66dbf7af1019161e6e62.css"], "name": "topic-editor.css"}, {"files": ["/genfiles/stylesheets/en/profile-nav-package-2d1af812a6aa57d74c24944fc5608099.css"], "name": "profile-nav.css"}, {"files": ["/genfiles/stylesheets/en/publish-package-d696163fa6a0efd77158869bf3f3e863.css"], "name": "publish.css"}, {"files": ["/genfiles/stylesheets/en/timepicker-package-6445b808106ec4ed6b535929e1fd7c17.css"], "name": "timepicker.css"}, {"files": ["/genfiles/stylesheets/en/topicsadmin-package-f5614a83fad1a5484ab9c6db8b19d433.css"], "name": "topicsadmin.css"}, {"files": ["/genfiles/stylesheets/en/donorschoose-package-18420b27a6bd117aa3496093e8ea9ee6.css"], "name": "donorschoose.css"}, {"files": ["/genfiles/stylesheets/en/location-picker-package-25589d86fc161bb48474a8207b2bbdda.css"], "name": "location-picker.css"}, {"files": ["/genfiles/stylesheets/en/exercise-content-package-d7dcad03487e13e6e5c2a2e1b0329712.css"], "name": "exercise-content.css"}, {"files": ["/genfiles/stylesheets/en/shared-package-21068bdc1f0c36f3f9b6934e5255f912.css"], "name": "shared.css"}, {"files": ["/genfiles/stylesheets/en/commoncore-package-4f6397f57e9c5f886c6127e98ac18781.css"], "name": "commoncore.css"}, {"files": ["/genfiles/stylesheets/en/bootstrap-package-31d5a45083ecbc7847798844c4945e98.css"], "name": "bootstrap.css"}, {"files": ["/genfiles/stylesheets/en/maps-package-582b58bad4cbad747f2b4aafcaee5218.css"], "name": "maps.css"}, {"files": ["/genfiles/stylesheets/en/studentlists-package-759d3af4844bd5d5e05d3bc93a5c5db5.css"], "name": "studentlists.css"}, {"files": ["/genfiles/stylesheets/en/login-package-370e2b458caa4b51317ceda1c5e988ff.css"], "name": "login.css"}, {"files": ["/genfiles/stylesheets/en/style-package-1650ed97bb9d622baeaecdb056ebef9f.css"], "name": "style.css"}, {"files": ["/genfiles/stylesheets/en/tasks-package-bb8db317d41d235327060065a0650b1d.css"], "name": "tasks.css"}, {"files": ["/genfiles/stylesheets/en/coach-report-exercises-package-9a1c37355390589ee565b842503afda1.css"], "name": "coach-report-exercises.css"}, {"files": ["/genfiles/stylesheets/en/coach-report-realtime-package-e394a6423523e8c89c247d8ad802742e.css"], "name": "coach-report-realtime.css"}, {"files": ["/genfiles/stylesheets/en/labs-package-72e0193c8be6d27849c8bc54090487fc.css"], "name": "labs.css"}, {"files": ["/genfiles/stylesheets/en/coach-report-progress-by-student-package-0b03f0797a56b1e55103596eaba70ae6.css"], "name": "coach-report-progress-by-student.css"}, {"files": ["/genfiles/stylesheets/en/mobile-package-5bad6dab82d7bed532bd5c00283a5994.css"], "name": "mobile.css"}, {"files": ["/genfiles/stylesheets/en/legacy-search-package-608a0002568cc767f8f7bb199b001228.css"], "name": "legacy-search.css"}, {"files": ["/genfiles/stylesheets/en/badge-package-bffb356d2bdb7856f4798c8266ffb69b.css"], "name": "badge.css"}, {"files": ["/genfiles/stylesheets/en/profile-settings-package-08c771e33b245de210dac84b31f4bb51.css"], "dependencies": ["location-picker.css", "eduorg-picker.css"], "name": "profile-settings.css"}, {"files": ["/genfiles/stylesheets/en/knowledgemap-package-eb22b55377f8c1bcd9abc1cc8e1216ad.css"], "name": "knowledgemap.css"}, {"files": ["/genfiles/stylesheets/en/clarifications-package-9b27a5d5e6e209db42571ef088aea7b9.css"], "name": "clarifications.css"}, {"files": ["/genfiles/stylesheets/en/profile-reports-package-2810fb44e94066c3a3f32bee440fe2a9.css"], "name": "profile-reports.css"}, {"files": ["/genfiles/stylesheets/en/socrates-package-aec5ae3ad12124670e609b758e9b113a.css"], "name": "socrates.css"}, {"files": ["/genfiles/stylesheets/en/typeahead-vanilla-package-ee98819c984d89dd28d51f93cfab0991.css"], "name": "typeahead-vanilla.css"}, {"files": ["/genfiles/stylesheets/en/eduorg-picker-package-e7a639401c631679329916d7e98c7fe4.css"], "name": "eduorg-picker.css"}, {"files": ["/genfiles/stylesheets/en/coach-report-grid-package-f2813f017bb9b23d4ec99c3dc2d12278.css"], "name": "coach-report-grid.css"}, {"files": ["/genfiles/stylesheets/en/video-package-cad4ea412251376a910d783b7fd2c609.css"], "name": "video.css"}, {"files": ["/genfiles/stylesheets/en/intro-package-4e6bf5d5cf499e29fa250c074df58908.css"], "name": "intro.css"}, {"files": ["/genfiles/stylesheets/en/coach-report-activity-package-358145ef6986d7bed1a91662d2a0314b.css"], "name": "coach-report-activity.css"}, {"files": ["/genfiles/stylesheets/en/moderation-package-1c252753e8892d9b554fa1f588b93a45.css"], "name": "moderation.css"}, {"files": ["/genfiles/stylesheets/en/react-package-477bd49961ad1212206b4a5cf042e400.css"], "name": "react.css"}], "javascript": [{"files": ["/genfiles/javascript/en/socrates-package-ff54f1e6111ada1d9d18f9f623a0d1e6.js"], "name": "socrates.js"}, {"files": ["/genfiles/javascript/en/react-art-package-935c19e4f71b1b76ba1c9d65a1f43512.js"], "dependencies": ["react.js"], "name": "react-art.js"}, {"files": ["/genfiles/javascript/en/tasks-secondary-package-94b29d321aaa3743af3f4c57f7ec6f9d.js"], "dependencies": ["react.js", "tasks.js", "odometer.js"], "name": "tasks-secondary.js"}, {"files": ["/genfiles/javascript/en/coach-report-exercises-package-33d6f1a27241e57d42705f12e4f520d1.js"], "dependencies": ["reports.js"], "name": "coach-report-exercises.js"}, {"files": ["/genfiles/javascript/en/notifications-package-1d569cf67ff5e272a6ef3f109710f176.js"], "dependencies": ["react.js"], "name": "notifications.js"}, {"files": ["/genfiles/javascript/en/follow-package-0247e51b7820c610b6b4e866062ec5d8.js"], "dependencies": ["react.js"], "name": "follow.js"}, {"files": ["/genfiles/javascript/en/publish-package-e8e02dfd4338543f0982e9cd6f607564.js"], "dependencies": ["react.js", "editor.js"], "name": "publish.js"}, {"files": ["/genfiles/javascript/en/articles-latex-package-d611732dc869128e6a0ec1cd23988c2c.js"], "dependencies": ["katex.js"], "name": "articles-latex.js"}, {"files": ["/genfiles/javascript/en/coach-reports-downloads-package-4df008bb3c31cc63d43cbbfe178a53ca.js"], "name": "coach-reports-downloads.js"}, {"files": ["/genfiles/javascript/en/bloodhound-package-ddc33b17dfbe2ff029c03020e55de4af.js"], "name": "bloodhound.js"}, {"files": ["/genfiles/javascript/en/d3-package-73176556f4fb06be804a7f0bb7b2e64c.js"], "name": "d3.js"}, {"files": ["/genfiles/javascript/en/studentlists-package-dede94850620b11d3f56e9c940116fe8.js"], "dependencies": ["mission-picker.js"], "name": "studentlists.js"}, {"files": ["/genfiles/javascript/en/odometer-package-e6e65371a128cd42fc25b54c2db10900.js"], "name": "odometer.js"}, {"files": ["/genfiles/javascript/en/mobile-oauth-package-73225c2ff6ad34e8fff9f61a753bb9b8.js"], "name": "mobile-oauth.js"}, {"files": ["/genfiles/javascript/en/location-picker-package-2bc993fdc5ebdd0d961da4d6c4e8e552.js"], "dependencies": ["react.js", "select2.js"], "name": "location-picker.js"}, {"files": ["/genfiles/javascript/en/maps-package-521aa0f09b5bed0a729261cb2c34a59e.js"], "name": "maps.js"}, {"files": ["/genfiles/javascript/en/exercise-search-package-ba54ea3e197fb8a32a63dcaf91a8b266.js"], "name": "exercise-search.js"}, {"files": ["/genfiles/javascript/en/scratchpads-exec-package-07cea82198f065c4d06ec64a9efc4d45.js"], "name": "scratchpads-exec.js"}, {"files": ["/genfiles/javascript/en/intro-package-ce1325dc34206c8dafc93ef735950c2d.js"], "dependencies": ["react.js"], "name": "intro.js"}, {"files": ["/genfiles/javascript/en/coach-report-activity-package-435dba564ad80603374a7c91743c6fe6.js"], "dependencies": ["reports.js"], "name": "coach-report-activity.js"}, {"files": ["/genfiles/javascript/en/commoncore-package-29b4cfc11ae4e907f662bdf59b30bda1.js"], "dependencies": ["react.js"], "name": "commoncore.js"}, {"files": ["/genfiles/javascript/en/login-package-2f3c66ca3fee8c3cf994967e1fdc45eb.js"], "dependencies": ["react.js"], "name": "login.js"}, {"files": ["/genfiles/javascript/en/select2-package-1a8e46f09c15066a9b2081e157548089.js"], "dependencies": ["react.js"], "name": "select2.js"}, {"files": ["/genfiles/javascript/en/donorschoose-package-5b89560fa7d2d01159209f357c8998b2.js"], "name": "donorschoose.js"}, {"files": ["/genfiles/javascript/en/mission-picker-package-e7bc86b7215ced43f3584c67c80a11e3.js"], "dependencies": ["react.js"], "name": "mission-picker.js"}, {"files": ["/genfiles/javascript/en/devadmin-package-7d8b511edbc95dca37b0568afcbc5ae7.js"], "dependencies": ["react.js"], "name": "devadmin.js"}, {"files": ["/genfiles/javascript/en/stories-package-53d9ea9ebed1a3911b3af9d7e20b7c1d.js"], "name": "stories.js"}, {"files": ["/genfiles/javascript/en/rcss-package-2868333d6411d2bf9524463ce06d3acd.js"], "name": "rcss.js"}, {"files": ["/genfiles/javascript/en/highcharts-package-4b37c9f99a766d6d918bb2325fde9d30.js"], "name": "highcharts.js"}, {"files": ["/genfiles/javascript/en/scratchpads-package-02503244433c2f3f0735e64de502d496.js"], "dependencies": ["scratchpad-challenge.js", "scratchpad-base.js"], "name": "scratchpads.js"}, {"files": ["/genfiles/javascript/en/profile-settings-package-6c0e587a18fa547ad0d12b9a62ece45b.js"], "dependencies": ["react.js", "location-picker.js", "eduorg-picker.js", "select2.js"], "name": "profile-settings.js"}, {"files": ["/genfiles/javascript/en/coach-report-grid-package-3c420ba5961eaf23ce54c7bdb153a9dc.js"], "dependencies": ["reports.js"], "name": "coach-report-grid.js"}, {"files": ["/genfiles/javascript/en/phantom-package-a82aabcbf21dae861f471f0acd51adf3.js"], "name": "phantom.js"}, {"files": ["/genfiles/javascript/en/profile-nav-package-92f5d80104d5a99c1c7d056054d204bc.js"], "dependencies": ["react.js"], "name": "profile-nav.js"}, {"files": ["/genfiles/javascript/en/moderation-package-92baa9adcfbad13ca16f33398129f079.js"], "dependencies": ["react.js", "discussion.js"], "name": "moderation.js"}, {"files": ["/genfiles/javascript/en/ckeditor-package-2db1b61a3c0de6d1c583e60e07bc1f3f.js"], "dependencies": ["react-components.js"], "name": "ckeditor.js"}, {"files": ["/genfiles/javascript/en/reports-package-887b84efafb5ab4b40658e8236f74ecb.js"], "dependencies": ["react.js", "select2.js"], "name": "reports.js"}, {"files": ["/genfiles/javascript/en/exercises-package-0818cd87bb445739dbbdd0b0b5229653.js"], "dependencies": ["react.js"], "name": "exercises.js"}, {"files": ["/genfiles/javascript/en/treecopy-package-3cf174866272158df7af6efd0de4f774.js"], "name": "treecopy.js"}, {"files": ["/genfiles/javascript/en/missions-package-109a80ac169da3e4ec7e61f171ca4d4b.js"], "dependencies": ["react.js"], "name": "missions.js"}, {"files": ["/genfiles/javascript/en/interns-package-3f399b30e8ba3b91cd2e683435b252b4.js"], "name": "interns.js"}, {"files": ["/genfiles/javascript/en/cs-programs-package-4b596d4bd861df7ec65185eca4637232.js"], "dependencies": ["react.js"], "name": "cs-programs.js"}, {"files": ["/genfiles/javascript/en/search-package-15845a8c13c57eae159a23bca128a2b2.js"], "name": "search.js"}, {"files": ["/genfiles/javascript/en/nav-package-27328d821d128e47ece60351c1815376.js"], "name": "nav.js"}, {"files": ["/genfiles/javascript/en/donate-package-b64bc9c07a2506689d30b8670cd1a8dd.js"], "name": "donate.js"}, {"files": ["/genfiles/javascript/en/scratchpad-challenge-package-86a8cf8a4383f0655112ad39f72fda9a.js"], "name": "scratchpad-challenge.js"}, {"files": ["/genfiles/javascript/en/video-testimonials-package-b347e89c4d64730e8ef9bc5388e4936a.js"], "dependencies": ["react.js"], "name": "video-testimonials.js"}, {"files": ["/genfiles/javascript/en/perseus-admin-package-6da1ebd4c5fc6e2ae410d6f4f1705163.js"], "dependencies": ["react.js", "perseus.js", "select2.js", "d3.js", "bloodhound.js", "typeahead-vanilla.js"], "name": "perseus-admin.js"}, {"files": ["/genfiles/javascript/en/issues-package-36d9bf4c0239a4babd4281d9793226fb.js"], "dependencies": ["react.js"], "name": "issues.js"}, {"files": ["/genfiles/javascript/en/clarifications-package-74fd367d5d605b716d426717001e70a9.js"], "dependencies": ["react.js", "react-components.js"], "name": "clarifications.js"}, {"files": ["/genfiles/javascript/en/discussion-package-f61f65b5f4af255f109de87ad4048e34.js"], "name": "discussion.js"}, {"files": ["/genfiles/javascript/en/react-components-package-521171639fb140e7e3e71343ab460843.js"], "dependencies": ["rcss.js"], "name": "react-components.js"}, {"files": ["/genfiles/javascript/en/video-package-70596eb25aa387b6f6d74cda929a9153.js"], "dependencies": ["react.js"], "name": "video.js"}, {"files": ["/genfiles/javascript/en/orphan-package-7d30f981073a8ea2c10d61305174e12c.js"], "dependencies": ["react.js"], "name": "orphan.js"}, {"files": ["/genfiles/javascript/en/katex-package-41bcae6c409522ec3fd6da74e82bbc43.js"], "name": "katex.js"}, {"files": ["/genfiles/javascript/en/coach-report-topic-package-022c8e6985151f1f2a537b4186f2fd3b.js"], "dependencies": ["reports.js"], "name": "coach-report-topic.js"}, {"files": ["/genfiles/javascript/en/mobile-package-1f97c8c19eff9a59dbaaacc685ed8a9d.js"], "name": "mobile.js"}, {"files": ["/genfiles/javascript/en/coaches-package-2b5e4e78ebe741900f0cb4e658c5ce68.js"], "name": "coaches.js"}, {"files": ["/genfiles/javascript/en/exercise-content-package-1f8c76ebeafc7ba15c3eec7adb7c25fe.js"], "dependencies": ["exercises.js"], "name": "exercise-content.js"}, {"files": ["/genfiles/javascript/en/coach-report-realtime-package-65086b4efd20bb006085e7f7b16709d1.js"], "dependencies": ["reports.js"], "name": "coach-report-realtime.js"}, {"files": ["/genfiles/javascript/en/homepage-package-e784f14bb3360a33b8f220c4be190603.js"], "name": "homepage.js"}, {"files": ["/genfiles/javascript/en/scratchpad-base-package-2b278375992f445977708040ae98bd3f.js"], "name": "scratchpad-base.js"}, {"files": ["/genfiles/javascript/en/eduorg-picker-package-890ab2cd70c2d2828a1bfbea89afde86.js"], "dependencies": ["react.js", "select2.js"], "name": "eduorg-picker.js"}, {"files": ["/genfiles/javascript/en/timepicker-package-84efb09d6258a8b4a97d86778e97a373.js"], "name": "timepicker.js"}, {"files": ["/genfiles/javascript/en/contentanalytics-package-50669f668a76e28d4b27737a38d55e52.js"], "dependencies": ["react.js", "select2.js"], "name": "contentanalytics.js"}, {"files": ["/genfiles/javascript/en/profile-package-46e96f29be2f615897d255cdcddba8da.js"], "dependencies": ["discussion.js", "profile-nav.js", "missions.js", "react.js", "cs-programs.js", "profile-settings.js", "follow.js", "teams.js"], "name": "profile.js"}, {"files": ["/genfiles/javascript/en/react-package-34f8875d060856bcce959f1d7f2220e6.js"], "name": "react.js"}, {"files": ["/genfiles/javascript/en/tutorial-package-297e5b4604b8b19dcb05e47a9f6f720d.js"], "name": "tutorial.js"}, {"files": ["/genfiles/javascript/en/teams-package-584c901bdc4df988a013dc3c75acd4ae.js"], "dependencies": ["react.js", "d3.js"], "name": "teams.js"}, {"files": ["/genfiles/javascript/en/sat-package-0c5fd6755f5c032763e69deec89369a0.js"], "dependencies": ["react.js"], "name": "sat.js"}, {"files": ["/genfiles/javascript/en/tutorial-editor-package-38fb27103822fb4b5e6ff28e5f87918f.js"], "dependencies": ["react.js", "editor.js", "perseus-admin.js", "ckeditor.js", "react-components.js"], "name": "tutorial-editor.js"}, {"files": ["/genfiles/javascript/en/topicsadmin-package-ad38057185de8c98522ea0c9d11002a5.js"], "dependencies": ["react.js"], "name": "topicsadmin.js"}, {"files": ["/genfiles/javascript/en/parent-splash-package-f5f5b6d318fbe3a79792112d874e08a0.js"], "dependencies": ["react.js"], "name": "parent-splash.js"}, {"files": ["/genfiles/javascript/en/raphael-package-c6dc7f13be31e278881ccbed6b384e37.js"], "name": "raphael.js"}, {"files": ["/genfiles/javascript/en/exerciseissues-package-6115d535beeb87a01102bf0f00f51acb.js"], "dependencies": ["react.js"], "name": "exerciseissues.js"}, {"files": ["/genfiles/javascript/en/profile-reports-package-215e83e9ecb00cef4b12f38c9339a24a.js"], "dependencies": ["profile.js", "react.js"], "name": "profile-reports.js"}, {"files": ["/genfiles/javascript/en/bigbingo-package-b81810d35023cd5b6b11b41622945e92.js"], "name": "bigbingo.js"}, {"files": ["/genfiles/javascript/en/dashboard-secondary-package-a481eaf9389c1a7410f511cd73a27bd2.js"], "dependencies": ["dashboard.js", "select2.js"], "name": "dashboard-secondary.js"}, {"files": ["/genfiles/javascript/en/coach-report-progress-by-student-package-0db50d761c379a45ea7d372e55f8b881.js"], "dependencies": ["reports.js"], "name": "coach-report-progress-by-student.js"}, {"files": ["/genfiles/javascript/en/topic-package-c64433fb43c55d090d1bf8ca6c9d53a4.js"], "name": "topic.js"}, {"files": ["/genfiles/javascript/en/translation-editor-package-d48952c5d0023a8a0921075766529c94.js"], "dependencies": ["react.js"], "name": "translation-editor.js"}, {"files": ["/genfiles/javascript/en/topic-editor-package-2784ddab1ed9696dbe99472ca60f4421.js"], "dependencies": ["editor.js"], "name": "topic-editor.js"}, {"files": ["/genfiles/javascript/en/shared-package-594d0e326c39dfc06f9f9ea4d6096524.js"], "name": "shared.js"}, {"files": ["/genfiles/javascript/en/perseus-package-a27fca71651293f94d323d3b30293de4.js"], "dependencies": ["react.js", "katex.js", "exercise-content.js"], "name": "perseus.js"}, {"files": ["/genfiles/javascript/en/recommendations-package-6bef754db8d614c604ad976288af5ff1.js"], "dependencies": ["react.js", "tasks.js", "timepicker.js"], "name": "recommendations.js"}, {"files": ["/genfiles/javascript/en/autocomplete-package-5bd3dd1a714dc70a7a0b69ef8698971b.js"], "name": "autocomplete.js"}, {"files": ["/genfiles/javascript/en/dashboard-package-50111b6fa4d97dd996e0188dff1d1a68.js"], "dependencies": ["missions.js", "profile-nav.js", "react.js", "react-art.js", "tasks.js", "mission-picker.js"], "name": "dashboard.js"}, {"files": ["/genfiles/javascript/en/editor-package-172a6e587d6519c6b4e4c63bfe5c3439.js"], "dependencies": ["autocomplete.js", "react.js", "select2.js", "tutorial.js", "react-components.js"], "name": "editor.js"}, {"files": ["/genfiles/javascript/en/typeahead-package-0411bb5620ab7241304a757d2c56116c.js"], "name": "typeahead.js"}, {"files": ["/genfiles/javascript/en/typeahead-vanilla-package-ea1cff848c3044de450edecab4a6ee1e.js"], "name": "typeahead-vanilla.js"}, {"files": ["/genfiles/javascript/en/tasks-package-03d47f4cb95f988c30f53dfd15bf451a.js"], "dependencies": ["react.js"], "name": "tasks.js"}, {"files": ["/genfiles/javascript/en/library-package-21a955db658c7efd1974e25dc1f7c6f9.js"], "name": "library.js"}, {"files": ["/genfiles/javascript/en/settings-package-7c0ab9695fceb72cc901d74f7b11a523.js"], "dependencies": ["profile-settings.js"], "name": "settings.js"}, {"files": ["/genfiles/javascript/en/knowledgemap-package-d1598070c04cb97b8c6ea5c9ef23a8d0.js"], "name": "knowledgemap.js"}]});
+    </script>
+
+    <script type="text/javascript">
+        // If their computer clock is off by more than a day, complain
+        // about that too (causes SSL problems)
+        if (Math.abs(KA.currentServerTime() - new Date() / 1000) >= 60 * 60 * 24
+                && document.getElementById("inaccurate-clock-warning")) {
+            document.getElementById("inaccurate-clock-warning").innerHTML = "If you're still having trouble, please check your computer's clock and make sure that today's date is properly set.";
+        }
+    </script><script type="text/javascript">
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+        window.mixpanel = [];
+    </script>
+
+        
+    
+    
+<script type="text/javascript">
+    $('#language_picker').change(function () {
+        var new_tag = $('#language_picker option:selected').attr('value');
+        // TODO(csilvers): I18N: redirect to <new_tag>.khanacademy.org?
+        window.location.href = '/intl/' + new_tag;
+    });
+</script>
+
+    <script type="text/javascript">
+        (function() {
+            function loadHorizon() {
+                var s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = location.protocol + '//ak.sail-horizon.com/horizon/v1.js';
+                var x = document.getElementsByTagName('script')[0];
+                x.parentNode.insertBefore(s, x);
+            }
+            loadHorizon();
+            var oldOnLoad = window.onload;
+            window.onload = function() {
+                if (typeof oldOnLoad === 'function') {
+                    oldOnLoad();
+                }
+                if (window.Sailthru) {
+                    Sailthru.setup({domain: 'sthorizon.khanacademy.org'});
+                } 
+            };
+        })();
+    </script>
+    
+
+    <script type="text/javascript">$(function() {
+            
+
+            var NavHeader = KAdefine.require(
+                "./javascript/shared-package/nav-header.js");
+            NavHeader.init({
+                loginUrl: "/login?continue=%2Fcs%2Fnew",
+                logoutUrl: "/logout?continue=%2Fcs%2Fnew",
+                signUpUrl: "/signup?continue=%2Fcs%2Fnew"
+            });
+
+            var NavFooter = KAdefine.require(
+                "./javascript/shared-package/nav-footer.js");
+            NavFooter.init();
+
+            
+                
+                    
+                
+
+                NavHeader.renderUserDropdown({
+                    profileRoot: "/profile/_kag5zfmtoYW4tYWNhZGVteXJPCxIIVXNlckRhdGEiQXVzZXJfaWRfa2V5X2h0dHA6Ly9nb29nbGVpZC5raGFuYWNhZGVteS5vcmcvMTE0NDIxNjg1NzAxNDIzNTY4MTUzDA/",
+                    showSignUpToSave: false,
+                    showSettings: true
+                });
+                NavHeader.renderNotificationsDropdown();
+            
+
+            
+            HeaderTopicBrowser.init();
+        });
+
+        
+
+        
+            if (window.console) {
+                console.log(document.childNodes[1].nodeValue);
+            }
+        
+    </script>
+
+    
+    
+
+    
+
+
+
+
+
+<script crossorigin="anonymous" src="./(3) New Program   Computer Science   Khan Academy_files/react-package-34f8875d060856bcce959f1d7f2220e6.js"></script>
+<script>PackageManager.setLoaded("react.js")</script>
+<script crossorigin="anonymous" src="./(3) New Program   Computer Science   Khan Academy_files/discussion-package-f61f65b5f4af255f109de87ad4048e34.js"></script>
+<script>PackageManager.setLoaded("discussion.js")</script>
+<script crossorigin="anonymous" src="./(3) New Program   Computer Science   Khan Academy_files/moderation-package-92baa9adcfbad13ca16f33398129f079.js"></script>
+<script>PackageManager.setLoaded("moderation.js")</script>
+
+
+
+<script crossorigin="anonymous" src="./(3) New Program   Computer Science   Khan Academy_files/intro-package-ce1325dc34206c8dafc93ef735950c2d.js"></script>
+<script>PackageManager.setLoaded("intro.js")</script>
+
+<script crossorigin="anonymous" src="./(3) New Program   Computer Science   Khan Academy_files/scratchpad-base-package-2b278375992f445977708040ae98bd3f.js"></script>
+<script>PackageManager.setLoaded("scratchpad-base.js")</script>
+
+<script crossorigin="anonymous" src="./(3) New Program   Computer Science   Khan Academy_files/scratchpad-challenge-package-86a8cf8a4383f0655112ad39f72fda9a.js"></script>
+<script>PackageManager.setLoaded("scratchpad-challenge.js")</script>
+
+<script crossorigin="anonymous" src="./(3) New Program   Computer Science   Khan Academy_files/scratchpads-package-02503244433c2f3f0735e64de502d496.js"></script>
+<script>PackageManager.setLoaded("scratchpads.js")</script>
+
+<script>
+$(function() {
+    ScratchpadUIStart();
+    ScratchpadUI.init();
+});
+</script>
+
+
+    
+<div class="hotnumber picker" style="display: none;"><div id="hotpicker" class="picker"><div class="colorpicker" id="collorpicker_898" data-parent="hotpicker" style="display: block; position: relative;"><div class="colorpicker_color" style="background-color: rgb(255, 0, 0);"><div><div style="left: 150px; top: 0px;"></div></div></div><div class="colorpicker_hue"><div style="top: 150px;"></div></div><div class="colorpicker_new_color" style="background-color: rgb(255, 0, 0);"></div><div class="colorpicker_current_color" style="background-color: rgb(255, 0, 0);"></div><div class="colorpicker_hex"><input type="text" maxlength="6" size="6"></div><div class="colorpicker_rgb_r colorpicker_field"><input type="text" maxlength="3" size="3"><span></span></div><div class="colorpicker_rgb_g colorpicker_field"><input type="text" maxlength="3" size="3"><span></span></div><div class="colorpicker_rgb_b colorpicker_field"><input type="text" maxlength="3" size="3"><span></span></div><div class="colorpicker_hsb_h colorpicker_field"><input type="text" maxlength="3" size="3"><span></span></div><div class="colorpicker_hsb_s colorpicker_field"><input type="text" maxlength="3" size="3"><span></span></div><div class="colorpicker_hsb_b colorpicker_field"><input type="text" maxlength="3" size="3"><span></span></div><div class="colorpicker_submit"></div></div></div><div class="arrow"></div></div><div class="hotnumber" style="display: none;"><div class="scrubber"><div class="scrubber-handle ui-draggable" style="position: relative;">◄ ◆ ►</div></div><div class="arrow"></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-draggable ui-resizable ui-dialog-no-close-button ui-dialog-buttons" tabindex="-1" role="dialog" style="position: absolute; height: auto; width: 600px; top: 193px; left: 603px; display: none;" aria-describedby="ui-id-1" aria-labelledby="ui-id-2"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-2" class="ui-dialog-title">Save As...</span><button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" aria-disabled="false" title="close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">close</span></button></div><div id="ui-id-1" class="ui-dialog-content ui-widget-content" style="display: block; width: auto; min-height: 26px; max-height: none; height: auto;"><p>We're going to save your program now, please set a descriptive title for it:</p><div class="scratchpad-change-title-prompt"><input><p>To find your programs later, you can:</p><ul><li>Click "My Programs" from links around the programming part of the site.</li><li>Click your name in the upper right corner to get to your profile, then click "programs".</li></ul></div></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Save</span></button><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Cancel</span></button></div></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-draggable ui-resizable ui-dialog-no-close-button ui-dialog-buttons" tabindex="-1" role="dialog" aria-describedby="ui-id-3" style="position: absolute; height: auto; width: 600px; top: 357px; left: 603px; display: none;" aria-labelledby="ui-id-4"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-4" class="ui-dialog-title">Save As...</span><button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" aria-disabled="false" title="close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">close</span></button></div><div id="ui-id-3" class="ui-dialog-content ui-widget-content" style="display: block; width: auto; min-height: 26px; max-height: none; height: auto;"><p>We're going to save your program now, please set a descriptive title for it:</p><div class="scratchpad-change-title-prompt"><input><p>To find your programs later, you can:</p><ul><li>Click "My Programs" from links around the programming part of the site.</li><li>Click your name in the upper right corner to get to your profile, then click "programs".</li></ul></div></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Save</span></button><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Cancel</span></button></div></div></div></body></html>
