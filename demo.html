@@ -5,4 +5,30 @@
     <script type="text/javascript" src="matcher/matcher.js"></script>
 </head>
     Hello World
+    <script>
+        var threadPool = function(callback){
+            this.pool = [];
+            this.id = 0;
+            this.callback = callback;
+        }
+        threadPool.prototype.getThread = function(){
+            var th = this.pool.shift()
+            if(!th){
+                th = new Worker("matcher/match_worker.js");
+                th.onmessage = this.callback
+            }
+            this.id++;
+            th.id = this.id;
+            return th;
+        }
+        threadPool.prototype.returnThread = function(th){
+            this.pool.push(th);
+        }
+        
+        matchers = new threadPool(function(e){
+            results = JSON.parse(e.data);
+            console.log(e);
+            matchers.returnThread(e.target)
+        })
+    </script>
 </html>

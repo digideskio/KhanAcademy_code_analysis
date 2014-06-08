@@ -52,7 +52,6 @@ Khan Academy Interview Project
 - Expressions
   - Structured style variable match fail-over? (This is computationally super-expensive)
 
-
 #### Edge Cases to consider
 - Strip empty statements from pattern
 - Separate declaration and instantiation;
@@ -61,3 +60,6 @@ Khan Academy Interview Project
     - Expressions in if(), for(), while(), switch(), function param names
 
 -Full disclosure: let the commite logs show this is the moment I found structured.js
+
+### Todo:
+- Web Workers that will cancel remaining tests if it is terminated.

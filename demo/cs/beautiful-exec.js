@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     var e = function (r, i) {
         var n = e._makeRequire(r)
         e._moduleDefinitions[r] = function () {
@@ -3472,6 +3472,7 @@
                     return M.call(t, e) > -1
                 }, a, true),
                 p = [
+
                     function (e, n, i) {
                         return !s && (i || n !== l) || ((t = n).nodeType ? f(e, n, i) : c(e, n, i))
                     }
@@ -5624,6 +5625,7 @@
         Gn = [ni],
         Qn = {
             "*": [
+
                 function (e, t) {
                     var n, i, r = this.createTween(e, t),
                         o = Yn.exec(t),
@@ -7137,8 +7139,8 @@ KAdefine("third_party/javascript-khansrc/jquery/jquery.js", function (require, r
         "\r": "r",
         "\n": "n",
         "	": "t",
-        "\u2028": "u2028",
-        "\u2029": "u2029"
+        " ": "u2028",
+        " ": "u2029"
     }
     var B = /\\|'|\r|\n|\t|\u2028|\u2029/g
     j.template = function (n, r, t) {
@@ -24247,6 +24249,7 @@ if (typeof window === "undefined") window = {};
         return i
     }({
         1: [
+
             function (e, t, n) {
                 var r = t.exports = {}
                 r.nextTick = function () {
@@ -24293,6 +24296,7 @@ if (typeof window === "undefined") window = {};
             }, {}
         ],
         2: [
+
             function (e, t, n) {
                 (function (e) {
                     if (!e.EventEmitter) e.EventEmitter = function () {}
@@ -24428,6 +24432,7 @@ if (typeof window === "undefined") window = {};
             }
         ],
         3: [
+
             function (e, t, n) {
                 (function () {
                     "use strict"
@@ -24992,6 +24997,7 @@ if (typeof window === "undefined") window = {};
             }, {}
         ],
         4: [
+
             function (e, t, n) {
                 (function () {
                     "use strict"
@@ -25206,6 +25212,7 @@ if (typeof window === "undefined") window = {};
             }, {}
         ],
         5: [
+
             function (e, t, n) {
                 "use string"
                 n.unsafeString = /@cc|<\/?|script|\]\s*\]|<\s*!|&lt/i
@@ -25219,6 +25226,7 @@ if (typeof window === "undefined") window = {};
             }, {}
         ],
         6: [
+
             function (e, t, n) {
                 "use strict"
                 var r = {
@@ -25243,6 +25251,7 @@ if (typeof window === "undefined") window = {};
             }, {}
         ],
         7: [
+
             function (e, t, n) {
                 (function () {
                     "use strict"
@@ -25370,6 +25379,7 @@ if (typeof window === "undefined") window = {};
             }, {}
         ],
         8: [
+
             function (e, t, n) {
                 (function () {
                     "use strict"
@@ -26491,11 +26501,13 @@ if (typeof window === "undefined") window = {};
             }
         ],
         jshint: [
+
             function (e, t, n) {
                 t.exports = e("FD4Lxs")
             }, {}
         ],
         FD4Lxs: [
+
             function (e, t, n) {
                 (function () {
                     var t = e("events")
@@ -30544,6 +30556,7 @@ if (typeof window === "undefined") window = {};
             }
         ],
         9: [
+
             function (e, t, n) {
                 (function (n) {
                     var r = e("util")
@@ -30630,6 +30643,7 @@ if (typeof window === "undefined") window = {};
             }
         ],
         10: [
+
             function (e, t, n) {
                 var r = e("events")
                 n.isArray = i
@@ -30920,6 +30934,7 @@ if (typeof window === "undefined") window = {};
             }
         ],
         11: [
+
             function (e, t, n) {
                 (function () {
                     var n = e("util")
@@ -31134,6 +31149,7 @@ if (typeof window === "undefined") window = {};
             }
         ],
         13: [
+
             function (e, t, n) {
                 n.readIEEE754 = function (e, t, n, r, i) {
                     var s, o, a = i * 8 - r - 1,
@@ -31208,6 +31224,7 @@ if (typeof window === "undefined") window = {};
             }, {}
         ],
         12: [
+
             function (e, t, n) {
                 (function () {
                     function t(e) {
@@ -32071,6 +32088,7 @@ if (typeof window === "undefined") window = {};
             }
         ],
         14: [
+
             function (e, t, n) {
                 (function (e) {
                     "use strict"
@@ -33157,7 +33175,6 @@ KAdefine("javascript/scratchpads-exec-package/output.js", function (require, req
             r()
             try {
                 s = JSON.parse(o.data)
-				console.log(JSON.stringify(s, null, 4));
             } catch (u) {
                 return
             }
