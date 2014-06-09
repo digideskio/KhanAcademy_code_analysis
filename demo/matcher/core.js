@@ -19,6 +19,7 @@
 	}
 
 	var customTests = [
+    {tests: ["!while()"], message: "Bad boy! No while loops."},
 	{tests: ["var Bx, By;"], message: "Your pong game should have variables Bx and By to track the ball's location"},
 	{tests: ["var draw = function(){}"], message: "Your pong game should have a draw function"},
 	{tests: ["var draw = function(){ Bx += _; }"], message: "You should increment Bx in your draw function"},

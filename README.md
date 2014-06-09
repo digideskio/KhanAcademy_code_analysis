@@ -64,3 +64,12 @@ Khan Academy Interview Project
 ### Todo:
 - Web Workers that will cancel remaining tests if it is terminated.
 - Check if es5-shim is already loaded in the main page
+
+### Monday morning goal list:
+- Function calls
+- Expressions
+- Caching
+- Worker termination
+- Formatting code-hints
+- Remove empty statements
+- 

@@ -1,14 +1,10 @@
 parse = acorn.parse_dammit;
 
 function isBroken(value){
-    return value.type == "Identifier" && typeof value.name == "string" && (value.name.charCodeAt(0) == 10006 || value.name.charCodeAt(0) == 226)
+    return value.type == "Identifier" && typeof value.name == "string" && value.name.charCodeAt(0) == 10006
 }
-function isEmpty(value){
+function isNull(value){
     return value == null || value.type == "EmptyStatement" || isBroken(value)
-}
-debug_on = false;
-function debug(msg){
-    if(debug_on) console.log(msg);
 }
 
 function expand_declarations(old_ast){
@@ -32,11 +28,9 @@ function preprocess_body(ast){
     
     for(var i=0; i<ast.length; i++){
         if(ast[i].type == "ExpressionStatement" && ast[i].expression.type == "UnaryExpression" && isBroken(ast[i].expression.argument)){
-            if(isEmpty(ast[i+1])) continue;
             blacklist.push(preprocess_obj(ast[i+1]))
             i++
         }
-        else if(isEmpty(ast[i])) continue;
         else whitelist.push(preprocess_obj(ast[i]))   
     }
     body = expand_declarations(whitelist)
@@ -44,12 +38,15 @@ function preprocess_body(ast){
     return body;
 }
 function preprocess_obj(obj){
-    if(typeof obj != "object") return obj;
+    if(obj == null || typeof obj != "object") return obj;
     else{ //Is object
-        for(key in obj){
-            if(isEmpty(obj[key])) obj[key] = null;
-            else if(key == 'body' && obj.body instanceof Array) obj[key] = preprocess_body(obj.body)
-            else obj[key] = preprocess_obj(obj[key]);
+        if('body' in obj && obj.body instanceof Array){
+            obj.body = preprocess_body(obj.body)
+        }
+        else{
+            for(key in obj){
+                obj[key] = preprocess_obj(obj[key])
+            }
         }
         return obj
     }
@@ -62,11 +59,18 @@ function match(pat, prog){
 }
 
 
-function match_body(pattern, body){
-    debug(["match_body", pattern, body])
+function match_body_wrapper(pattern_obj, body_obj){
+    //console.log(["match_body_wrapper", pattern_obj, body_obj])
+    if(isNull(pattern_obj)){ console.log("pattern is null"); return true; }
+    else if(isNull(body_obj)) return false;
+    
+    return match_body(pattern_obj.body, body_obj.body)
+}
+function match_body(pattern , body){
+    //console.log(["match_body", pattern, body])
     var pattern_index = 0;
     if(pattern.length > 0){
-        for(var body_index=0; body_index<body.length; body_index++){
+        for(var body_index in body){
             if(match_statement(pattern[pattern_index], body[body_index])){
                 pattern_index += 1;
             }
@@ -79,79 +83,68 @@ function match_body(pattern, body){
     return false;
 }
 
-function match_statement(pattern, statement, key){
-    debug(["match_statement", pattern, statement, key])
-    if(pattern == null){ debug("pattern is null"); return true; }
-    else if(statement == null) return false;
-    
-    else if(typeof pattern == "object" && pattern.type == "Identifier" && pattern.name == "_") return true;
-    
-    else if(key == 'body' && pattern instanceof Array){
-        if(!(statement instanceof Array)) return false;
-        return match_body(pattern, statement)
+function match_statement(pattern, statement){
+    //console.log(["match_statement", pattern, statement])
+    if(pattern.type != statement.type) return false;
+    switch(pattern.type){
+        case "IfStatement":
+            if(!match_body_wrapper(pattern.consequent, statement.consequent)) return false;
+            if(!match_body_wrapper(pattern.alternate, statement.alternate)) return false;
+            return true;
+        case "WhileStatement":
+        case "ForStatement":
+            if(!match_body_wrapper(pattern.body, statement.body)) return false;
+            return true;
+        case "VariableDeclarator":
+            if(!match_identifier(pattern.id, statement.id)) return false;
+            if(pattern.init != null && pattern.init.type == "FunctionExpression"){
+                if(statement.init == null || statement.init.type != "FunctionExpression") return false; 
+                else if(!match_body_wrapper(pattern.init.body, statement.init.body)) return false;
+                else if(!(pattern.init.params.length == 1 && pattern.init.params[0].name == "$_") && pattern.init.params.length != statement.init.params.length) return false;
+            }
+            return true
+        case "ExpressionStatement":
+            if(pattern.expression.type == "AssignmentExpression"){
+                pat_expr = pattern.expression;
+                stat_expr = statement.expression;
+                if(stat_expr.type != "AssignmentExpression") return false;
+                if(pat_expr.operator != stat_expr.operator) return false;
+                if(!match_identifier(pat_expr.left, stat_expr.left)) return false;
+                return true;
+            }
+        case "SwitchStatement":
+            if(!(pattern.cases.length == 1 && pattern.cases[0].consequent.length == 1 && pattern.cases[0].consequent[0].type == "ExpressionStatement" && pattern.cases[0].consequent[0].expression.type == "Identifier" && pattern.cases[0].consequent[0].expression.name == "$_") && (pattern.cases.length != statement.cases.length)) return false;
+            return true;
+        console.log("INVALID STATEMENT IN PATTERN!!")
     }
-    else if(pattern instanceof Array){
-        if(!(statement instanceof Array)) return false;
-        return match_list(pattern, statement);
-    }
-    else if(typeof pattern == "object"){
-        if(!(typeof statement == "object")) return false;
-        return match_object(pattern, statement);
-    }
-    else return pattern == statement;
+    console.log("unresolveable type");
+    return false;
 }
 
-function match_object(pattern, obj){
-    debug(["match_object", pattern, obj])
-    if(pattern.type != obj.type) return false;
-    for(key in pattern){
-        if(!pattern.hasOwnProperty(key))  continue; // Skip inheritted properties
-        if(key == "start" || key == "end" || key == "loc") continue; //Skip location properties
-        if(!match_statement(pattern[key], obj[key], key)) return false;
-    }
-    return true;
-}
-    
-function match_list(pattern, list){
-    debug(["match_list", pattern, list])
-    for(var i=0; i<pattern.length; i++){
-        if(pattern[i].type == "Identifier" && pattern[i].name == "$$_") return true;
-        else if(!match_statement(pattern[i], list[i])) return false;
-    }
-    if(list.length > pattern.length) return false;
-    return true;
-}
-
-//Out of date
 function match_identifier(pattern_id, statement_id){
-    //debug(["match_identifier", pattern_id, statement_id])
+    //console.log(["match_identifier", pattern_id, statement_id])
     if(pattern_id.name == "_" || isBroken(pattern_id)) return true;
     if(pattern_id.name == null) return false;
     return pattern_id.name == statement_id.name;
 }
 
 function show(obj){
-    debug(JSON.stringify(obj, null, 4));
+    console.log(JSON.stringify(obj, null, 4));
 }
 
-
-
-
 function run_test(){
-// Switch-Case 
-/*
-console.log(match("switch(_){ $$_ }", "switch(a){}") == true);
-console.log(match("switch(){ $$_ }", "switch(){}") == true);
-console.log(match("switch(){ $$_ }", "switch(){case 0: ;}") == true);
+// Switch-Case
+console.log(match("switch(_){ $_ }", "switch(a){}") == true);
+console.log(match("switch(){ $_ }", "switch(){}") == true);
+console.log(match("switch(){ $_ }", "switch(){case 0: ;}") == true);
 console.log(match("switch(){ }", "switch(){}") == true);
 console.log(match("switch(){ }", "switch(){{case 0: ;}") == false);
 console.log(match("switch(){ case _: }", "switch(){ case 0:}") == true);
-*/
 
 // Function declaration
 console.log(match("var _ = function(){ var _; while(){} }", "var bigfun = function(){var e; while(){} }") == true);
-console.log(match("var _ = function($$_){}", "var bigfun = function(a, b){}") == true);
-console.log(match("var _ = function($$_){}", "var bigfun = function(a){}") == true);
+console.log(match("var _ = function($_){}", "var bigfun = function(a, b){}") == true);
+console.log(match("var _ = function($_){}", "var bigfun = function(a){}") == true);
 console.log(match("var _ = function(_){}", "var bigfun = function(a){}") == true);
 console.log(match("var _ = function(_){}", "var bigfun = function(a, b){}") == false);
 console.log(match("var _ = function(_, _, _){}", "var bigfun = function(a, b, c){}") == true);
@@ -168,7 +161,7 @@ console.log(match("var _; var _; var _;", "var a, b;") == false);
 console.log(match("a = b;", "a = b;") == true);
 console.log(match("c = b;", "a = b;") == false);
 console.log(match("_ = b;", "a = b;") == true);
-console.log(match("a = 90;", "a = b;") == false);
+console.log(match("a = 90;", "a = b;") == true); // Doesn't consider right side
 console.log(match("_ += 11;", "a += 11;") == true);
 console.log(match("_ = 11;", "a += 11;") == false);
     
