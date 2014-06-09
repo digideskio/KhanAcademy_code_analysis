@@ -63,3 +63,4 @@ Khan Academy Interview Project
 
 ### Todo:
 - Web Workers that will cancel remaining tests if it is terminated.
+- Check if es5-shim is already loaded in the main page

@@ -33156,8 +33156,7 @@ KAdefine("javascript/scratchpads-exec-package/output.js", function (require, req
             e = o.origin
             r()
             try {
-                s = JSON.parse(o.data)
-				console.log(JSON.stringify(s, null, 4));
+                s = JSON.parse(o.data);
             } catch (u) {
                 return
             }

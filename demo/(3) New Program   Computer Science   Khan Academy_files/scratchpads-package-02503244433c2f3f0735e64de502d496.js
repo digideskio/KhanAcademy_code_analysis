@@ -8286,7 +8286,7 @@ o=a.projectTopic
 i=o||n.projectTopic
 i=i===null||i===undefined||i===false?i:i.root
 i=i===null||i===undefined||i===false?i:i.nodeSlug
-if(typeof i===d){i=i.call(n,{hash:{}})}else if(i===u){i=h.call(n,"projectTopic.root.nodeSlug",{hash:{}})}r+=v(i)+'">\n        <div class="task-header-container">\n            <div class="task-root-nav">\n                <a href="/cs" class="domain">'
+if(typeof i===d){i=i.call(n,{hash:{}})}else if(i===u){i=h.call(n,"projectTopic.root.nodeSlug",{hash:{}})}r+=v(i)+'">\n        <div class="task-header-container">\n<div class="task-root-nav">\n              <a href="/cs" class="domain">'
 o=a["_"]
 i=o||n["_"]
 c=f.program(2,m,e)
@@ -8311,7 +8311,26 @@ c.hash={}
 c.fn=c
 c.inverse=f.noop
 i=l.call(n,i,c)
-if(i||i===0){r+=i}r+='">\n                '
+if(i||i===0){r+=i}r+='">\n    \
+\
+				<style> \
+					#custom-hinter{ \
+						width: 300px; \
+						margin: 0 50px; \
+						float: right; \
+					} \
+					#custom-hinter p{ \
+						min-height: 80px; \
+						margin-top: 0px; \
+						color: lightgrey; \
+						font-size: 20px; \
+					} \
+				</style> \
+                <div id="custom-hinter"> \
+					<h2>Hints:</h2> \
+					<p></p> \
+				</div> \
+ '
 o=a.isChallenge
 i=o||n.isChallenge
 l=a["if"]
@@ -10146,7 +10165,7 @@ if(t&&!ScratchpadUI.embedded&&!ScratchpadUI.canEditCurrentScratchpad()){Scratchp
 return true}return false}
 var n=function(){var t=/^.*:\/\/[^\/]*/.exec($("#output-frame").attr("data-src"))
 return t?t[0]:window.location.protocol+"//"+window.location.host}
-var d=function(t){$("#output-frame")[0].contentWindow.postMessage(JSON.stringify(t),n())}
+var d=function(t){$("#output-frame")[0].contentWindow.postMessage(JSON.stringify(t),n());}
 ScratchpadUI.postFrame=d
 var s=function(){d({restart:true})}
 var l=function(e){var a=parseQueryString(t)
@@ -10190,7 +10209,7 @@ ScratchpadUI.editor.originalCode=r.code
 s()}if(r.validate!=null){e=r.validate}if(r.lines!==undefined){ScratchpadUI.editor.toggleGutter(r.lines)}if(r.restart){s()}if(r.cursor){ScratchpadUI.editor.setCursor(r.cursor)
 ScratchpadUI.editor.setErrorHighlight(true)}if(r.focus){ScratchpadUI.editor.focus()}}})
 $("#output-frame").bind("load",function(){toExec=true})
-a.on("change",function(){toExec=true})
+a.on("change",function(){toExec=true; customHinter()})
 setInterval(function(){if(toExec!==null){l(toExec===true?ScratchpadUI.editor.text():toExec)
 toExec=null}},100)
 $(ScratchpadConfig).bind("versionSwitched",function(t,e){toExec=true
