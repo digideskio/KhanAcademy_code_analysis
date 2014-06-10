@@ -6,17 +6,36 @@ function isBroken(value){
 function isEmpty(value){
     return value == null || value.type == "EmptyStatement" || isBroken(value)
 }
-debug_on = false;
-function debug(msg){
-    if(debug_on) console.log(msg);
+debug_lvl = 0;
+function debug(msg, level){
+    if(level == null) level = 1
+    if(level <= debug_lvl) console.log(msg);
 }
 
 function expand_declarations(old_ast){
     var new_ast = [];
     for(var i=0; i<old_ast.length; i++){
         value = old_ast[i];
-        if(value.type == "VariableDeclaration"){
-            new_ast = new_ast.concat(value.declarations)
+        if(value.type == "VariableDeclaration"){ // Unwrap variable declaration
+            debug(value);
+            var extension = []
+            for(var j=0; j<value.declarations.length; j++){
+                d = value.declarations[j]
+                extension.push(d);
+                if(d.init != null){
+                    extension.push({
+                        type: "ExpressionStatement",
+                        expression: {
+                            type: "AssignmentExpression",
+                            operator: "=",
+                            left: d.id,
+                            right: d.init
+                        }
+                    })
+                    d.init = null;
+                }
+            }
+            new_ast = new_ast.concat(extension)
         }
         else{
             new_ast.push(value);
@@ -26,39 +45,72 @@ function expand_declarations(old_ast){
 }
 
 
-function preprocess_body(ast){
+function preprocess_body(ast, wildcards){
     var whitelist = [];
     var blacklist = [];
     
     for(var i=0; i<ast.length; i++){
         if(ast[i].type == "ExpressionStatement" && ast[i].expression.type == "UnaryExpression" && isBroken(ast[i].expression.argument)){
             if(isEmpty(ast[i+1])) continue;
-            blacklist.push(preprocess_obj(ast[i+1]))
+            blacklist.push(preprocess_obj(ast[i+1], wildcards))
             i++
         }
         else if(isEmpty(ast[i])) continue;
-        else whitelist.push(preprocess_obj(ast[i]))   
+        else whitelist.push(preprocess_obj(ast[i], wildcards))   
     }
     body = expand_declarations(whitelist)
     body.blacklist = expand_declarations(blacklist);
     return body;
 }
-function preprocess_obj(obj){
+function preprocess_obj(obj, wildcards){
+    debug(["pp_obj", obj, wildcards], 2)
     if(typeof obj != "object") return obj;
-    else{ //Is object
+    else if(wildcards && obj.type == "Identifier" && obj.name.slice(0,1) == "$" && obj.name.length > 1 && obj.name.slice(1,2) != "$"){
+        if(!(obj.name in wildcards)){
+            wildcards[obj.name] = {type: 'wildcard', skip: 0};
+            wildcards.order.push(wildcards[obj.name])
+        }
+        return wildcards[obj.name]
+    } else { //Is object
         for(key in obj){
             if(isEmpty(obj[key])) obj[key] = null;
-            else if(key == 'body' && obj.body instanceof Array) obj[key] = preprocess_body(obj.body)
-            else obj[key] = preprocess_obj(obj[key]);
+            else if(key == 'body' && obj.body instanceof Array) obj[key] = preprocess_body(obj.body, wildcards)
+            else obj[key] = preprocess_obj(obj[key], wildcards);
         }
         return obj
     }
 }
 
-function match(pat, prog){
-    var pattern = preprocess_body(acorn.parse_dammit(pat).body);
+function match(pat, prog, validateCallback){
+    var wildcards = {order: []};
+    var pattern = preprocess_body(acorn.parse_dammit(pat).body, wildcards);
     var program = preprocess_body(acorn.parse_dammit(prog).body);
-    return match_body(pattern, program)
+    
+    for(var timeout=0; timeout < 10000; timeout++){
+        res = match_body(pattern, program, wildcards);
+        if(res == true){
+            if(!validateCallback) return true;
+            else if(validateCallback(wildcards)) return true;
+        }
+        else{
+            if(wildcards.order.length == 0) return false;
+            var pushed = false;
+            for(var i=wildcards.order.length; i--; ){
+                card = wildcards.order[i]
+                if(!pushed){
+                    if(card.matched == true){
+                        card.skip++;
+                        pushed = true;
+                    }
+                    else card.skip = 0;
+                }
+                card.skipped = 0;
+                card.matched = 0;
+            }
+            if(!pushed) return false;
+        }
+    }
+    return false;
 }
 
 
@@ -85,8 +137,17 @@ function match_statement(pattern, statement, key){
     else if(statement == null) return false;
     
     else if(typeof pattern == "object" && pattern.type == "Identifier" && pattern.name == "_") return true;
+    else if(typeof pattern == "object" && pattern.type == "wildcard"){
+        if(pattern.matched) pattern = pattern.match;
+        else if(pattern.skipped < pattern.skip) pattern.skipped++;
+        else{
+            pattern.matched = true;
+            pattern.match = statement;
+            return true;
+        }
+    }
     
-    else if(key == 'body' && pattern instanceof Array){
+    if(key == 'body' && pattern instanceof Array){
         if(!(statement instanceof Array)) return false;
         return match_body(pattern, statement)
     }
@@ -122,16 +183,9 @@ function match_list(pattern, list){
     return true;
 }
 
-//Out of date
-function match_identifier(pattern_id, statement_id){
-    //debug(["match_identifier", pattern_id, statement_id])
-    if(pattern_id.name == "_" || isBroken(pattern_id)) return true;
-    if(pattern_id.name == null) return false;
-    return pattern_id.name == statement_id.name;
-}
 
 function show(obj){
-    debug(JSON.stringify(obj, null, 4));
+    console.log(JSON.stringify(obj, null, 4));
 }
 
 
@@ -139,14 +193,9 @@ function show(obj){
 
 function run_test(){
 // Switch-Case 
-/*
-console.log(match("switch(_){ $$_ }", "switch(a){}") == true);
-console.log(match("switch(){ $$_ }", "switch(){}") == true);
-console.log(match("switch(){ $$_ }", "switch(){case 0: ;}") == true);
 console.log(match("switch(){ }", "switch(){}") == true);
 console.log(match("switch(){ }", "switch(){{case 0: ;}") == false);
 console.log(match("switch(){ case _: }", "switch(){ case 0:}") == true);
-*/
 
 // Function declaration
 console.log(match("var _ = function(){ var _; while(){} }", "var bigfun = function(){var e; while(){} }") == true);

@@ -52,24 +52,15 @@ Khan Academy Interview Project
 - Expressions
   - Structured style variable match fail-over? (This is computationally super-expensive)
 
-#### Edge Cases to consider
-- Strip empty statements from pattern
-- Separate declaration and instantiation;
-- Warn if the grammar includes uncheckable content:
-    - Recursing into switch-case
-    - Expressions in if(), for(), while(), switch(), function param names
-
 -Full disclosure: let the commite logs show this is the moment I found structured.js
 
-### Todo:
-- Web Workers that will cancel remaining tests if it is terminated.
-- Check if es5-shim is already loaded in the main page
-
-### Monday morning goal list:
-- Function calls
-- Expressions
+### Todo
+- Conditions
 - Caching
 - Worker termination
 - Formatting code-hints
 - Remove empty statements
+- Web Workers that will cancel remaining tests if it is terminated.
+- Check if es5-shim is already loaded in the main page
+- Everything will crash if you negate a wvar before declaring it. I feel like that makes sense tho.
 - 
