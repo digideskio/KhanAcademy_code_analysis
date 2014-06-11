@@ -1,18 +1,19 @@
 (function(){
 	var threadPool = function(){
 		this.pool = [];
-		this.cid = 0;
+        this.current = false;
 	}
 	threadPool.prototype.getThread = function(){
 		var th = this.pool.shift()
 		if(!th){
 			th = new Worker("matcher/match_worker.js");
 		}
-		this.cid++;
-		th.id = this.cid;
+        if(this.current) this.current.postMessage("abort");
+        this.current = th;
 		return th;
 	}
 	threadPool.prototype.returnThread = function(th){
+        if(th == this.current) this.current = false;
 		this.pool.push(th);
 	}
 
@@ -56,7 +57,7 @@
                     thread.ready = true;
                     post_tests(this);
                 } else {
-                    if(matchers.cid == this.id){
+                    if(e.data != "aborted"){
                         results = JSON.parse(e.data);
                         display_results(results);
                     }                           
