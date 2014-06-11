@@ -34,7 +34,9 @@ Khan Academy Interview Project
 - Positive pattern match or fail
 - Structured pattern match or fail
 - Negative match or fail
-- Return generic error messages
+- ~~Return generic error messages~~
+- +Wildcards
+- +Condition matching
 - Include variable names in error messages
 - Scrape KhanAcademy and inject script into CS console
 
@@ -55,12 +57,7 @@ Khan Academy Interview Project
 -Full disclosure: let the commite logs show this is the moment I found structured.js
 
 ### Todo
-- Conditions
 - Caching
-- Worker termination
 - Formatting code-hints
-- Remove empty statements
-- Web Workers that will cancel remaining tests if it is terminated.
 - Check if es5-shim is already loaded in the main page
-- Everything will crash if you negate a wvar before declaring it. I feel like that makes sense tho.
 - 
