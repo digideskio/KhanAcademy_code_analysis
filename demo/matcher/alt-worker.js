@@ -32,17 +32,16 @@ function runTests(tests, i, code, results){
     
     if(i == tests.length) postMessage(JSON.stringify(results));
     else if(abort) postMessage("aborted")
-    else {
+    else{
         for(var j=0; j<tests[i].length; j++){
-            if( !match(tests[i][j].filter, code, validateWith(tests[i][j].funcs)) ){
+            if( !match(tests[i][j].test, code, validateWith(tests[i][j].funcs)) ){
                 results.push(false);
                 break;
             }
             else if(j+1 == tests[i].length) results.push(true);
         }
-        setTimeout(function(){ runTests(tests, i+1, code, results) }, 0) 
     }
-      
+    setTimeout(function(){ runTests(tests, i+1, code, results) }, 0)   
 }
 
 addEventListener("message", function(e){

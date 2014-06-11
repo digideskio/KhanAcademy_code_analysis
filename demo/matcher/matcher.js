@@ -6,7 +6,7 @@ function isBroken(value){
 function isEmpty(value){
     return value == null || value.type == "EmptyStatement" || isBroken(value)
 }
-debug_lvl = 0;
+debug_lvl = -1;
 function debug(msg, level){
     if(level == null) level = 1
     if(level <= debug_lvl) console.log(msg);
@@ -87,11 +87,9 @@ function match(pat, prog, validateCallback){
     var program = preprocess_body(acorn.parse_dammit(prog).body);
     
     for(var timeout=0; timeout < 10000; timeout++){
+        debug(JSON.stringify(Object.keys(wildcards).map(function(k){ return wildcards[k] })), 0)
         res = match_body(pattern, program, wildcards);
-        if(res == true){
-            if(!validateCallback) return true;
-            else if(validateCallback(wildcards)) return true;
-        }
+        if(res == true && (!validateCallback || validateCallback(wildcards))) return true;
         else{
             if(wildcards.order.length == 0) return false;
             var pushed = false;

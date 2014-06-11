@@ -17,16 +17,16 @@
 	}
 
 	var customTests = [
-    {tests: ["!while()"], message: "Bad boy! No while loops."},
-	/*{
+    {tests: [{filter: "!while()"}], message: "Bad boy! No while loops."},
+	{
         tests: [
-            {test: "var $x, $y;", 
-             validate_callback: function(wildcards){ return (wildcards.$x.name.slice(-1) == 'x' && wildcards.$y.name.slice(-1) == "y")}}
+            {filter: "var $x, $y;", 
+             funcs: [ function($x, $y){ return ($x.name.slice(-1) == 'x' && $y.name.slice(-1) == "y")}.toString() ] }
         ],
-        message: "Your pong game should have variables Bx and By to track the ball's location"
-    },*/
-	{tests: ["var draw = function(){}"], message: "Your pong game should have a draw function"},
-	{tests: ["var draw = function(){ Bx += _; }"], message: "You should increment Bx in your draw function"},
+        message: "Your pong game should have variables for x and y to track the ball's location"
+    },
+	{tests: [{filter: "var draw = function(){}"}], message: "Your pong game should have a draw function"},
+	{tests: [{filter: "var draw = function(){ Bx += _; }"}], message: "You should increment Bx in your draw function"},
 	]
 	
 	var matchers = new threadPool()
@@ -44,16 +44,17 @@
 	}
         
 	window.customHinter = function(){
-        var post_tests = function(){ thread.postMessage(JSON.stringify({code: code, tests: customTests.map( function(test_obj){ return test_obj.tests } )})) }
+        var post_tests = function(thread){ thread.postMessage(JSON.stringify({code: code, tests: customTests.map( function(test_obj){ return test_obj.tests } )})) }
 		var code = ScratchpadUI.editor.text();
 		var thread = matchers.getThread();
         
-        if(thread.ready) post_tests()
+        if(thread.ready) post_tests(thread)
         else{
             thread.onmessage = function(e){
+                console.log(e.data)
                 if(e.data == "ready"){
                     thread.ready = true;
-                    post_tests();
+                    post_tests(this);
                 } else {
                     if(matchers.cid == this.id){
                         results = JSON.parse(e.data);
