@@ -1953,7 +1953,10 @@ PackageManager.setLoaded("shared.css","moderation.css","discussion.css","tasks.c
 $(function() {
     ScratchpadUIStart();
     ScratchpadUI.init();
-    customHinter();
+    ScratchpadUI.editor.text('');
+    customHinterOn = true;
+    setTimeout(function(){ customHinter() }, 50);
+   
 });
 </script>
 
